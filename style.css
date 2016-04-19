@@ -1,19 +1,18 @@
  body {
      position: relative;
      width: 100vw;
-     /*background-image: url('images/mm2boss.png');
+     background-image: url('images/background.jpg');
      background-repeat: no-repeat;
-     background-size: 50% 50%;*/
+     background-size: 100% 150%;
  }
  header {
-     background-color: black;
      width: 100%;
      height: 15%;
  }
  header > h1 {
      display: inline-block;
      position: relative;
-     left: 25%;
+     left: 80%;
      top: 50%;
      text-transform: uppercase;
      font-size: 500%;
@@ -22,39 +21,62 @@
      transform: translate(-15%,20%);
  }
  .gamelogo {
-     height: 150px;
-     width: 150px;
-     display: inline-block;
-     margin: 1em;
+     height: 125px;
+     width: 125px;
+     position: absolute;
+     left: 6%;
+     top: 3%;
  }
  .stats-container {
      width: 12%;
-     height: 30vh;
+     height: 55vh;
      font-family: Courier;
      text-transform: uppercase;
      box-sizing: border-box;
-     background-color: black;
+     background-color: mediumblue;
+     box-shadow: 5px 5px black;
      color: deepskyblue;
-     display: inline-block;
+     border: 3px solid black;
+     position: relative;
+     float: left;
+     text-align: center;
+     left: 5%;
+     margin-top: 4em;
+ }
+ .value {
+     margin-bottom: 25px;
+ }
+ .reset {
+     position: relative;
+     margin-top: 5em;
+     color: white;
+     background-color: mediumblue;
+     text-transform: uppercase;
+     padding: 10px;
  }
  .game-area {
     display: inline-block;
     width: 800px;
     box-sizing: border-box;
     position: relative;
-    left: 9%;
+    left: 10%;
     top: 3.5vh;
  }
+ .dancingman {
+     position: absolute;
+     width: 150px;
+     height: 150px;
+     top: 100%;
+     left: 5%;
 
+ }
  .card {
      display: inline-block;
      width: 100px;
      height: 145px;
-     border: black 1px solid;
+     border: black 2px solid;
      margin: 0.75em;
      text-align: center;
-     box-shadow: 5px 5px black;
- }
- .front {
-     background-image: url('images/cardfront.png');
+     box-shadow: 6px 6px black;
+     background-color: mediumblue;
  }
