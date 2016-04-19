@@ -1,3 +1,10 @@
+ body {
+     position: relative;
+     width: 100vw;
+     /*background-image: url('images/mm2boss.png');
+     background-repeat: no-repeat;
+     background-size: 50% 50%;*/
+ }
  header {
      background-color: black;
      width: 100%;
@@ -6,26 +13,48 @@
  header > h1 {
      display: inline-block;
      position: relative;
-     left: 30%;
+     left: 25%;
      top: 50%;
      text-transform: uppercase;
-     font-size: 400%;
+     font-size: 500%;
      color: deepskyblue;
      font-family: courier;
+     transform: translate(-15%,20%);
  }
  .gamelogo {
      height: 150px;
      width: 150px;
-     display: inline-block
+     display: inline-block;
+     margin: 1em;
  }
  .stats-container {
-     width: 15%;
-     height: 80vh;
-     border: solid 1px deepskyblue;
+     width: 12%;
+     height: 30vh;
      font-family: Courier;
      text-transform: uppercase;
      box-sizing: border-box;
      background-color: black;
      color: deepskyblue;
      display: inline-block;
+ }
+ .game-area {
+    display: inline-block;
+    width: 800px;
+    box-sizing: border-box;
+    position: relative;
+    left: 9%;
+    top: 3.5vh;
+ }
+
+ .card {
+     display: inline-block;
+     width: 100px;
+     height: 145px;
+     border: black 1px solid;
+     margin: 0.75em;
+     text-align: center;
+     box-shadow: 5px 5px black;
+ }
+ .front {
+     background-image: url('images/cardfront.png');
  }
