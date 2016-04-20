@@ -68,7 +68,13 @@
      height: 150px;
      top: 100%;
      left: 5%;
-
+ }
+ .dancingman2 {
+     position: absolute;
+     width: 115px;
+     height: 115px;
+     top: 100%;
+     left: 85%;
  }
  .card {
      display: inline-block;
@@ -93,6 +99,9 @@
      left: 0;
      height: 150px;
      width: 100px;
-
  }
-
+ .audiocontrols {
+     position: relative;
+     left: 50%;
+     transform: translate(-50%,650%);
+ }
