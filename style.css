@@ -8,27 +8,28 @@
  header {
      width: 100%;
      height: 15%;
+     padding-bottom: 1em;
  }
  header > h1 {
-     display: inline-block;
+     display: inline;
      position: relative;
-     left: 50%;
+     left: 35%;
      text-transform: uppercase;
      font-size: 500%;
      color: deepskyblue;
      font-family: courier;
-     transform: translate(-50%,25%);
+     top: 3vh;
  }
  .gamelogo {
      height: 125px;
      width: 125px;
      position: absolute;
-     left: 6%;
+     left: 6.5%;
      top: 3%;
  }
  .stats-container {
-     width: 150px;
-     height: 400px;
+     width: 160px;
+     height: 485px;
      font-family: Courier;
      text-transform: uppercase;
      box-sizing: border-box;
@@ -40,14 +41,28 @@
      float: left;
      text-align: center;
      left: 5%;
-     margin-top: 4em;
+     margin: 0;
+     top: 5vh;
+ }
+ .aboutandsettings {
+     color: white;
+     position: relative;
+     top: 8vh;
+     padding: 5px 0 5px 0;
+ }
+ .aboutandsettings a {
+     color: white;
+     text-decoration: none;
+ }
+ .aboutandsettings a:hover {
+     color: blue;
  }
  .value {
      margin-bottom: 25px;
  }
  .reset {
      position: relative;
-     margin-top: 5em;
+     margin-top: 10vh;
      color: white;
      background-color: mediumblue;
      text-transform: uppercase;
@@ -59,7 +74,7 @@
     height: auto;
     box-sizing: border-box;
     position: relative;
-    left: 10%;
+    left: 9%;
     top: 3.5vh;
  }
  .dancingman {
@@ -67,7 +82,7 @@
      width: 150px;
      height: 150px;
      top: 100%;
-     left: 5%;
+     left: 6%;
  }
  .dancingman2 {
      position: absolute;
@@ -101,7 +116,7 @@
      width: 100px;
  }
  .audiocontrols {
-     position: relative;
-     left: 50%;
-     transform: translate(-50%,650%);
+     position: absolute;
+     top: 45vh;
+     right: 35vw;
  }
