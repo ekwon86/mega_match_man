@@ -21,6 +21,7 @@ function card_clicked(current) {
         //this is the second card that was clicked of a set
         second_card_clicked = current;
         //show the card face
+        $(second_card_clicked).find('.back').hide();
         //check if the first card and the second card are the same face / picture
         //if they are, they match.  increment match_counter
         //are all cards matched?
