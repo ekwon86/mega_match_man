@@ -44,26 +44,22 @@ function card_clicked(current) {
                 alert('You won!');
         }
         } else {
-            //reset variables, we are going to match new cards next
-            //if they are not matched
-            //wait a short amount of time, then flip both cards back to normal
-            //reset variables, we are going to match new cards next
             canClick = false;
             card_flip_timer = setTimeout(function() {
-                console.log('test');
+                console.log('test - 1st card = ',first_card, "2nd card = ", second_card);
+                $(first_card).removeClass('flipcard');
+                $(second_card).removeClass('flipcard');
                 card_flip_timer = null;
-                first_card.removeClass('flipcard');
-                second_card.removeClass('flipcard');
                 canClick = true;
                 resetCards();
-            }, 2000);
+            }, 1500);
         }
-
-
-
-
     }
 }
+        //reset variables, we are going to match new cards next
+        //if they are not matched
+        //wait a short amount of time, then flip both cards back to normal
+        //reset variables, we are going to match new cards next
 
 //Keep doc ready here
 $(document).ready(function () {

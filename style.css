@@ -21,7 +21,7 @@ header > h1 {
     left: 35%;
     text-transform: uppercase;
     font-size: 500%;
-    text-shadow: 3px 3px darkblue;
+    text-shadow: 3px 3px black;
     color: deepskyblue;
     font-family: "Courier New";
     font-weight: bold;
@@ -40,7 +40,7 @@ header > h1 {
     font-family: Courier;
     text-transform: uppercase;
     box-sizing: border-box;
-    background-color: darkblue;
+    background-color: rgba(0,20,40, 0.8);
     box-shadow: 2px 2px black;
     color: deepskyblue;
     border: 3px solid black;
@@ -73,13 +73,14 @@ header > h1 {
     color: white;
     background-color: mediumblue;
     text-transform: uppercase;
+    font-family: Courier;
     padding: 10px;
 }
 .game-area {
     display: inline-block;
-    width: 900px;
-    height: 625px;
-    border: 1px solid white;
+    width: 860px;
+    height: 595px;
+    background-color: rgba(0,0,0, 0.5);
     box-sizing: border-box;
     position: relative;
     left: 10%;
