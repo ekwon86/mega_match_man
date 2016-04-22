@@ -103,7 +103,7 @@ header > h1 {
     display: inline-block;
     position: relative;
     width: 125px;
-    height: 170px;
+    height: 180px;
     margin: 0.5em;
     transition-duration: 1.25s;
     transform-style: preserve-3d;
@@ -112,7 +112,7 @@ header > h1 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 175px;
+    height: 180px;
     width: 125px;
     backface-visibility: hidden;
 }
@@ -120,7 +120,7 @@ header > h1 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 175px;
+    height: 180px;
     width: 125px;
     rotate3D(0,1,0,180deg);
 }
