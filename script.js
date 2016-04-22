@@ -35,14 +35,22 @@ function card_clicked(current) {
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
             $(first_card , second_card).addClass('matchedcards');
             $('.matchedcards').off("click");
+            //are all cards matched?
+            //if yes, player won game
+            // if not, continue playing game
             resetCards();
             match_counter++;
             if (match_counter == total_possible_matches) {
                 alert('You won!');
         }
         } else {
-            // canClick = false;
+            //reset variables, we are going to match new cards next
+            //if they are not matched
+            //wait a short amount of time, then flip both cards back to normal
+            //reset variables, we are going to match new cards next
+            canClick = false;
             card_flip_timer = setTimeout(function() {
+                console.log('test');
                 card_flip_timer = null;
                 first_card.removeClass('flipcard');
                 second_card.removeClass('flipcard');
@@ -50,14 +58,9 @@ function card_clicked(current) {
                 resetCards();
             }, 2000);
         }
-        //are all cards matched?
-        //if yes, player won game
-        // if not, continue playing game
 
-        //reset variables, we are going to match new cards next
-        //if they are not matched
-        //wait a short amount of time, then flip both cards back to normal
-        //reset variables, we are going to match new cards next
+
+
 
     }
 }
