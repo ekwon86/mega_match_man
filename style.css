@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    background-image: url('images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 150%;
+}
+header {
+    width: 100%;
+    height: 15%;
+    padding-bottom: 2em;
+}
+header > h1 {
+    display: inline;
+    position: relative;
+    left: 35%;
+    text-transform: uppercase;
+    font-size: 500%;
+    text-shadow: 3px 3px black;
+    color: deepskyblue;
+    font-family: "Courier New";
+    font-weight: bold;
+    top: 3vh;
+}
+.gamelogo {
+    height: 125px;
+    width: 125px;
+    position: absolute;
+    left: 6.5%;
+    top: 3%;
+}
+.stats-container {
+    width: 160px;
+    height: 485px;
+    font-family: Courier;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    background-color: rgba(0,20,40, 0.8);
+    box-shadow: 2px 2px black;
+    color: deepskyblue;
+    border: 3px solid black;
+    position: relative;
+    float: left;
+    text-align: center;
+    left: 5%;
+    margin: 0;
+    top: 5vh;
+}
+.aboutandsettings {
+    color: white;
+    position: relative;
+    top: 8vh;
+    padding: 5px 0 5px 0;
+}
+.aboutandsettings a {
+    color: white;
+    text-decoration: none;
+}
+.aboutandsettings a:hover {
+    color: blue;
+}
+.value {
+    margin-bottom: 25px;
+}
+.reset {
+    position: relative;
+    margin-top: 10vh;
+    color: white;
+    background-color: mediumblue;
+    text-transform: uppercase;
+    font-family: Courier;
+    padding: 10px;
+}
+.game-area {
+    display: inline-block;
+    width: 860px;
+    height: 595px;
+    background-color: rgba(0,0,0, 0.5);
+    box-sizing: border-box;
+    position: relative;
+    left: 10%;
+    top: 3.5vh;
+}
+.dancingman {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 80vh;
+    left: 6%;
+}
+/*.dancingman2 {*/
+    /*position: absolute;*/
+    /*width: 115px;*/
+    /*height: 115px;*/
+    /*top: 100%;*/
+    /*left: 85%;*/
+/*}*/
+.card {
+    display: inline-block;
+    position: relative;
+    width: 125px;
+    height: 180px;
+    margin: 0.5em;
+    transition-duration: 1.25s;
+    transform-style: preserve-3d;
+}
+.back > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 180px;
+    width: 125px;
+    backface-visibility: hidden;
+}
+.front > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 180px;
+    width: 125px;
+    rotate3D(0,1,0,180deg);
+}
+.flipcard {
+    transform: rotate3D(0,1,0,180deg);
+}
+.audiocontrols {
+    position: absolute;
+    top: 90vh;
+    right: 39vw;
+}
