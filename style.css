@@ -80,8 +80,8 @@ header > h1 {
 }
 .game-area {
     display: inline-block;
-    width: 710px;
-    height: 510px;
+    width: 800px;
+    height: 550px;
     background-color: rgba(0,0,0, 0.5);
     box-sizing: border-box;
     position: relative;
@@ -99,8 +99,8 @@ header > h1 {
 .card {
     display: inline-block;
     position: relative;
-    width: 100px;
-    height: 155px;
+    width: 115px;
+    height: 170px;
     margin: 0.4em;
     transition-duration: 1.25s;
     transform-style: preserve-3d;
@@ -109,8 +109,8 @@ header > h1 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 155px;
-    width: 100px;
+    height: 170px;
+    width: 115px;
     backface-visibility: hidden;
     transition
 }
@@ -118,8 +118,8 @@ header > h1 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 155px;
-    width: 100px;
+    height: 170px;
+    width: 115px;
     rotate3D(0,1,0,180deg);
 }
 
