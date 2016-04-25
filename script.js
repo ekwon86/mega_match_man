@@ -19,6 +19,18 @@ var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
 
+$(document).ready(function () {
+
+display_stats();
+$(".card").click(function(){
+    card_clicked(this);
+});
+
+$('.reset').click(function() {
+    reset();
+});
+
+    
 //reset cards to null
 function resetCards() {
     first_card = null;
@@ -98,16 +110,4 @@ function card_clicked(current) {
 }
 
 
-
-
-//doc ready here
-$(document).ready(function () {
-    display_stats();
-    $(".card").click(function(){
-        card_clicked(this);
-    });
-
-    $('.reset').click(function() {
-        reset();
-    });
 });

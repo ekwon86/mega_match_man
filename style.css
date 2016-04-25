@@ -9,7 +9,7 @@ body {
     width: 100vw;
     background-image: url('images/background.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 150%;
+    background-size: 100% 900px;
 }
 header {
     width: 100%;
@@ -44,7 +44,7 @@ header > h1 {
     position: relative;
     float: left;
     text-align: center;
-    left: 5%;
+    left: 5.25%;
     margin: 0;
     top: 5vh;
 }
@@ -81,11 +81,12 @@ header > h1 {
 .game-area {
     display: inline-block;
     width: 800px;
-    height: 550px;
+    height: 560px;
     background-color: rgba(0,0,0, 0.5);
     box-sizing: border-box;
     position: relative;
-    left: 10%;
+    transform: translate(-80%, 0%);
+    left: 50%;
     top: 3.5vh;
 }
 .dancingman {
@@ -129,5 +130,5 @@ header > h1 {
 .audiocontrols {
     position: absolute;
     top: 90vh;
-    right: 39vw;
+    right: 42vw;
 }
