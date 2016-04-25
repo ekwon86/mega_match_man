@@ -85,7 +85,7 @@ header > h1 {
     background-color: rgba(0,0,0, 0.5);
     box-sizing: border-box;
     position: relative;
-    transform: translate(-80%, 0%);
+    transform: translate(-65%, 0%);
     left: 50%;
     top: 3.5vh;
 }
