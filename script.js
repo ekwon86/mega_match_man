@@ -56,8 +56,7 @@ function card_clicked(current) {
     if (canClick === false || $(current).hasClass('flipcard')) {
         return;
     }
-
-    //console.log("card_clicked called - current is : ", current);
+    console.log("card_clicked called - current is : ", current);
 
     $(current).addClass('flipcard');
 
@@ -65,26 +64,27 @@ function card_clicked(current) {
         first_card = current;
     } else {
         second_card = current;
-        // console.log($(first_card).find('.frontimage').attr('src'), $(second_card).find('.frontimage').attr('src'));
+        console.log($(first_card).find('.frontimage').attr('src'), $(second_card).find('.frontimage').attr('src'));
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
             $(first_card , second_card).addClass('matchedcards');
             $('.matchedcards').off("click");
             resetCards();
             attempts++;
-            // console.log('total attempts equal to ' + attempts);
+            console.log('total attempts equal to ' + attempts);
             matches++;
-            // console.log('total matches equal to ' + matches);
+            console.log('total matches equal to ' + matches);
             get_accuracy();
+            display_stats();
             match_counter++;
             if (match_counter == total_possible_matches) {
                 alert('You won!');
         }
         } else {
             attempts++;
-            // console.log('total attempts equal to ' + attempts);
+            console.log('total attempts equal to ' + attempts);
             canClick = false;
             card_flip_timer = setTimeout(function() {
-                // console.log('test - 1st card = ',first_card, "2nd card = ", second_card);
+                console.log('test - 1st card = ',first_card, "2nd card = ", second_card);
                 $(first_card).removeClass('flipcard');
                 $(second_card).removeClass('flipcard');
                 card_flip_timer = null;
