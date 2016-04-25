@@ -20,7 +20,10 @@ var accuracy = 0;
 var games_played = 0;
 
 
+//accuracy function
 
+
+//display stats
 
 //reset cards to null
 function resetCards() {
@@ -44,13 +47,10 @@ function card_clicked(current) {
         first_card = current;
     } else {
         second_card = current;
-        //check if the first card and the second card are the same face / picture
-        //if they are, they match.  increment match_counter
         console.log($(first_card).find('.frontimage').attr('src'), $(second_card).find('.frontimage').attr('src'));
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
             $(first_card , second_card).addClass('matchedcards');
             $('.matchedcards').off("click");
-            //are all cards matched? if yes, player won game.if not, continue playing game
             resetCards();
             attempts++;
             console.log('total attempts equal to ' + attempts);
@@ -75,14 +75,12 @@ function card_clicked(current) {
         }
     }
 }
-        //reset variables, we are going to match new cards next
-        //if they are not matched
-        //wait a short amount of time, then flip both cards back to normal
-        //reset variables, we are going to match new cards next
 
-//Keep doc ready here
+//doc ready here
 $(document).ready(function () {
     $(".card").click(function(){
         card_clicked(this);
     });
+
+    // $(".accuracy").html(accuracy)
 });

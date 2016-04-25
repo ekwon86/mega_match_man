@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: Courier, sans-serif;
 }
 
 body {
@@ -23,7 +24,6 @@ header > h1 {
     font-size: 500%;
     text-shadow: 3px 3px black;
     color: deepskyblue;
-    font-family: "Courier New";
     font-weight: bold;
     top: 3vh;
 }
@@ -37,7 +37,6 @@ header > h1 {
 .stats-container {
     width: 160px;
     height: 485px;
-    font-family: Courier;
     text-transform: uppercase;
     box-sizing: border-box;
     background-color: rgba(0,20,40, 0.8);
@@ -75,13 +74,12 @@ header > h1 {
     color: white;
     background-color: mediumblue;
     text-transform: uppercase;
-    font-family: Courier;
     padding: 10px;
 }
 .game-area {
     display: inline-block;
-    width: 860px;
-    height: 595px;
+    width: 710px;
+    height: 510px;
     background-color: rgba(0,0,0, 0.5);
     box-sizing: border-box;
     position: relative;
@@ -90,24 +88,18 @@ header > h1 {
 }
 .dancingman {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     top: 80vh;
     left: 6%;
 }
-/*.dancingman2 {*/
-    /*position: absolute;*/
-    /*width: 115px;*/
-    /*height: 115px;*/
-    /*top: 100%;*/
-    /*left: 85%;*/
-/*}*/
+
 .card {
     display: inline-block;
     position: relative;
-    width: 125px;
-    height: 180px;
-    margin: 0.5em;
+    width: 100px;
+    height: 155px;
+    margin: 0.4em;
     transition-duration: 1.25s;
     transform-style: preserve-3d;
 }
@@ -115,17 +107,21 @@ header > h1 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 180px;
-    width: 125px;
+    height: 155px;
+    width: 100px;
     backface-visibility: hidden;
+    transition
 }
 .front > img {
     position: absolute;
     top: 0;
     left: 0;
-    height: 180px;
-    width: 125px;
+    height: 155px;
+    width: 100px;
     rotate3D(0,1,0,180deg);
+}
+.back:hover {
+
 }
 .flipcard {
     transform: rotate3D(0,1,0,180deg);
