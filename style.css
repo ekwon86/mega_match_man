@@ -88,9 +88,6 @@ header > h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*background-image: url('images/background.jpg');*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: 100% 140%;*/
 }
 .game-area {
     width: 800px;
