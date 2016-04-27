@@ -18,16 +18,16 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.5);
 }
 header > h1 {
     display: inline;
     position: relative;
-    left: 35%;
-    left: 35%;
+    left: 30%;
+    transform: translateX(-50%);
     text-transform: uppercase;
     font-size: 500%;
-    text-shadow: 3px 3px white;
+    text-shadow: 3px 3px  white;
     color: deepskyblue;
     font-weight: bold;
 }
@@ -42,7 +42,9 @@ header > h1 {
     height: 485px;
     text-transform: uppercase;
     box-sizing: border-box;
-    background-color: rgba(0,20,40, 0.8);
+    background-color: rgba(0,20,40, 0.5);
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
+    border-radius: 1%;
     color: deepskyblue;
     position: absolute;
     /*float: left;*/
@@ -93,17 +95,20 @@ header > h1 {
 .game-area {
     width: 800px;
     height: 560px;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0,0,0, 0.2);
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
+    border-radius: 1%;
     box-sizing: border-box;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 5%);
 }
+
 .dancingman {
     position: absolute;
     width: 135px;
     height: 135px;
-    top: 69vh;
+    top: 85vh;
     left: 6%;
 }
 
@@ -115,6 +120,7 @@ header > h1 {
     margin: 0.4em;
     transition-duration: 1.25s;
     transform-style: preserve-3d;
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
 }
 .back > img {
     position: absolute;
@@ -141,4 +147,8 @@ header > h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.audiocontrols {
+    bottom: 5vh;
+    background-color: rgba(0,0,0,0.5);
 }
