@@ -7,7 +7,7 @@
 body {
     position: relative;
     width: 100vw;
-    background-image: url('images/background.jpg');
+    background-image: url('images/background2.png');
     background-repeat: no-repeat;
     background-size: 100% 140%;
 }
@@ -15,24 +15,27 @@ header {
     width: 100%;
     height: 15%;
     padding-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3);
 }
 header > h1 {
     display: inline;
     position: relative;
     left: 35%;
+    left: 35%;
     text-transform: uppercase;
     font-size: 500%;
-    text-shadow: 3px 3px black;
+    text-shadow: 3px 3px white;
     color: deepskyblue;
     font-weight: bold;
-    top: 3vh;
 }
 .gamelogo {
-    height: 85px;
-    width: 85px;
+    height: 90px;
+    width: 90px;
     position: absolute;
-    left: 8%;
-    top: 5%;
+    left: 7.5%;
 }
 .stats-container {
     width: 160px;
@@ -41,12 +44,12 @@ header > h1 {
     box-sizing: border-box;
     background-color: rgba(0,20,40, 0.8);
     color: deepskyblue;
-    position: relative;
-    float: left;
+    position: absolute;
+    /*float: left;*/
     text-align: center;
     left: 5.25%;
     margin: 0;
-    top: 5vh;
+    top: 18vh;
 }
 .games-played, .attempts, .accuracy {
     font-family: Courier;
@@ -78,22 +81,29 @@ header > h1 {
     text-transform: uppercase;
     padding: 10px;
 }
+.mid {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-image: url('images/background.jpg');*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100% 140%;*/
+}
 .game-area {
-    display: inline-block;
     width: 800px;
     height: 560px;
     background-color: rgba(0,0,0, 0.5);
     box-sizing: border-box;
-    position: relative;
-    transform: translate(-80%, 0%);
+    position: absolute;
     left: 50%;
-    top: 3.5vh;
+    transform: translate(-50%, 5%);
 }
 .dancingman {
     position: absolute;
     width: 135px;
     height: 135px;
-    top: 80vh;
+    top: 69vh;
     left: 6%;
 }
 
@@ -127,8 +137,8 @@ header > h1 {
 .flipcard {
     transform: rotate3D(0,1,0,180deg);
 }
-.audiocontrols {
-    position: absolute;
-    top: 90vh;
-    right: 50vw;
+.audio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
