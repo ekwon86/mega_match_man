@@ -44,11 +44,13 @@ function reset_stats() {
 }
 //reset game function
 function reset() {
-        games_played++;
-        reset_stats();
-        display_stats();
-        $('.card').removeClass('flipcard');
+    games_played++;
+    reset_stats();
+    display_stats();
+    $('.card').removeClass('flipcard');
+
 }
+
 
 // ---- CARD FUNCITONS ---- //
 
@@ -67,8 +69,8 @@ function card_clicked(current) {
         second_card = current;
         console.log($(first_card).find('.frontimage').attr('src'), $(second_card).find('.frontimage').attr('src'));
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
-            $(first_card , second_card).addClass('matchedcards');
-            $('.matchedcards').off("click");
+            // $(first_card , second_card).addClass('matchedcards');
+            // $('.matchedcards').off("click");
             resetCards();
             attempts++;
             console.log('total attempts equal to ' + attempts);
@@ -104,8 +106,8 @@ $(document).ready(function () {
     $(".card").click(function(){
         card_clicked(this);
     });
-
     $('.reset').click(function() {
         reset();
-    });
+    })
+
 });
