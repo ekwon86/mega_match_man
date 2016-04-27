@@ -19,18 +19,7 @@ var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
 
-$(document).ready(function () {
 
-display_stats();
-$(".card").click(function(){
-    card_clicked(this);
-});
-
-$('.reset').click(function() {
-    reset();
-});
-
-    
 //reset cards to null
 function resetCards() {
     first_card = null;
@@ -55,10 +44,10 @@ function reset_stats() {
 }
 //reset game function
 function reset() {
-    games_played++;
-    reset_stats();
-    display_stats();
-    $('.card').removeClass('flipcard');
+        games_played++;
+        reset_stats();
+        display_stats();
+        $('.card').removeClass('flipcard');
 }
 
 // ---- CARD FUNCITONS ---- //
@@ -109,5 +98,14 @@ function card_clicked(current) {
     }
 }
 
+$(document).ready(function () {
 
+    display_stats();
+    $(".card").click(function(){
+        card_clicked(this);
+    });
+
+    $('.reset').click(function() {
+        reset();
+    });
 });
