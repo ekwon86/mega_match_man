@@ -48,7 +48,7 @@ function reset() {
     reset_stats();
     display_stats();
     $('.card').removeClass('flipcard');
-
+    $('.you-win').fadeOut('slow');
 }
 
 
@@ -95,7 +95,7 @@ function card_clicked(current) {
                 resetCards();
                 get_accuracy();
                 display_stats();
-            }, 1000);
+            }, 750);
         }
     }
 }
