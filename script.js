@@ -1,5 +1,6 @@
-// want to eventually add health bar and functionality. when
-// user guesses wrong mega man's health will go down. successive
+//TODO: want to eventually add health bar and functionality. when
+// user guesses wrong mega man's health will go down.
+// successive
 // match will grant health to player and wrong guesses will
 // decrement health.
 
@@ -53,7 +54,7 @@ function reset() {
 }
 
 
-// ---- CARD FUNCITONS ---- //
+// -------------------- CARD FUNCTIONS -------------------- //
 
 //click card function
 function card_clicked(current) {
@@ -101,16 +102,16 @@ function card_clicked(current) {
     }
 }
 
-$(document).ready(function () {
 
+$(document).ready(function () {
     display_stats();
+
+    $('.you-lose').hide();
+    $('.you-win').hide();
     $(".card").click(function(){
         card_clicked(this);
     });
     $('.reset').click(function() {
         reset();
-    })
-    $('.you-lose').hide();
-    $('.you-win').hide();
-
+    });
 });
