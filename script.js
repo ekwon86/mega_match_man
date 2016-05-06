@@ -33,7 +33,8 @@ function display_stats() {
 }
 //accuracy function
 function get_accuracy() {
-    accuracy = Math.round((match_counter / attempts)) * 100;
+    accuracy = Math.round(matches/ attempts) * 100;
+    return accuracy;
 }
 //reset_stats function
 function reset_stats() {
@@ -86,6 +87,8 @@ function card_clicked(current) {
             attempts++;
             console.log('total attempts equal to ' + attempts);
             canClick = false;
+            get_accuracy();
+            display_stats();
             card_flip_timer = setTimeout(function() {
                 console.log('test - 1st card = ',first_card, "2nd card = ", second_card);
                 $(first_card).removeClass('flipcard');
@@ -93,9 +96,7 @@ function card_clicked(current) {
                 card_flip_timer = null;
                 canClick = true;
                 resetCards();
-                get_accuracy();
-                display_stats();
-            }, 750);
+            }, 1000);
         }
     }
 }
