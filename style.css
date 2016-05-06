@@ -1,61 +1,48 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Courier, sans-serif;
+    font-family: "MegaMan 2";
+    letter-spacing: 0.3vw;
+}
+@font-face {
+    font-family: "MegaMan 2";
+    src: url(megaman.ttf);
 }
 body {
-    position: relative;
-    width: 100vw;
     background-image: url('images/background2.png');
     background-repeat: no-repeat;
-    background-size: 100% 140%;
+    background-size: 100% 130%;
 }
 header {
-    width: 100%;
-    height: 15%;
-    padding-bottom: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,0.5);
+    height: 5vh;
 }
+
 header > h1 {
-    display: inline;
-    position: relative;
-    left: 30%;
-    transform: translateX(-50%);
-    text-transform: uppercase;
-    font-size: 500%;
-    text-shadow: 3px 3px  white;
+    font-size: 5vh;
+    text-shadow: 3px 3px 3px #1f3bff;
     color: deepskyblue;
-    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1vw;
+    margin-top: 4vh;
 }
-.gamelogo {
-    height: 90px;
-    width: 90px;
-    position: absolute;
-    left: 7.5%;
-}
+
 .stats-container {
-    width: 160px;
-    height: 485px;
-    text-transform: uppercase;
-    box-sizing: border-box;
     background-color: rgba(0,20,40, 0.5);
-    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.15);
     border-radius: 1%;
     color: deepskyblue;
-    position: absolute;
-    /*float: left;*/
+    text-shadow: 2px 2px 2px #0652ff;
     text-align: center;
-    left: 5.25%;
-    margin: 0;
-    top: 18vh;
+    margin-right: 3vw;
+    margin-top: 23vh;
+    width: 18vw;
+    height: 62vh;
+    font-size: 1.5vh;
 }
 .games-played, .attempts, .accuracy {
-    font-family: Courier;
     color: white;
-    margin-top: 1em;
+    margin: 1em 1vw;
+    font-size: 1.5vh;
 }
 
 .aboutandsettings {
@@ -69,18 +56,19 @@ header > h1 {
     text-decoration: none;
 }
 .aboutandsettings a:hover {
-    color: blue;
+    color: #1eb7ff;
+    text-decoration: none;
 }
 .value {
     margin-bottom: 25px;
 }
 .reset {
     position: relative;
-    margin-top: 10vh;
+    margin: 10vh 1vw;
     color: white;
-    background-color: mediumblue;
+    background-color: #16ccff;
     text-transform: uppercase;
-    padding: 10px;
+    padding: 1vh;
 }
 .mid {
     height: 70vh;
@@ -89,15 +77,16 @@ header > h1 {
     align-items: center;
 }
 .game-area {
-    width: 800px;
-    height: 560px;
-    background-color: rgba(0,0,0, 0.2);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 60vw;
+    height: 68vh;
+    background-color: rgba(0,0,0, 0.5);
     box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
     border-radius: 1%;
-    box-sizing: border-box;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 5%);
+    margin-top: 23vh;
 }
 
 .dancingman {
@@ -111,19 +100,18 @@ header > h1 {
 .card {
     display: inline-block;
     position: relative;
-    width: 115px;
-    height: 170px;
+    height: 21vh;
+    width: 8vw;
     margin: 0.4em;
     transition-duration: 1.25s;
     transform-style: preserve-3d;
-    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
 }
 .back > img {
     position: absolute;
     top: 0;
     left: 0;
-    height: 170px;
-    width: 115px;
+    height: 21vh;
+    width: 8vw;
     backface-visibility: hidden;
     transition
 }
@@ -131,8 +119,8 @@ header > h1 {
     position: absolute;
     top: 0;
     left: 0;
-    height: 170px;
-    width: 115px;
+    height: 21vh;
+    width: 8vw;
     rotate3D(0,1,0,180deg);
 }
 
@@ -140,11 +128,19 @@ header > h1 {
     transform: rotate3D(0,1,0,180deg);
 }
 .audio {
+    bottom: -14vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.audiocontrols {
-    bottom: 5vh;
-    background-color: rgba(0,0,0,0.5);
+.you-win, .you-lose {
+    font-size: 8vh;
+    position: absolute;
+    background-color: rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 10px black;
+    color: #2ad1ff;
+    padding: 0.5em 1.5em;
+    top: 35vh;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }

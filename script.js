@@ -80,7 +80,7 @@ function card_clicked(current) {
             display_stats();
             match_counter++;
             if (match_counter == total_possible_matches) {
-                alert('You won!');
+                $('.you-win').fadeIn('slow');
         }
         } else {
             attempts++;
@@ -95,7 +95,7 @@ function card_clicked(current) {
                 resetCards();
                 get_accuracy();
                 display_stats();
-            }, 1500);
+            }, 1000);
         }
     }
 }
@@ -109,5 +109,7 @@ $(document).ready(function () {
     $('.reset').click(function() {
         reset();
     })
+    $('.you-lose').hide();
+    $('.you-win').hide();
 
 });
