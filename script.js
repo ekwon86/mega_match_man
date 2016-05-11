@@ -61,7 +61,7 @@ function reset() {
 // --------------------------- CARD FUNCTIONS ------------------------------ //
 
 function card_clicked(current) {
-    play_sound();
+    $('#19').trigger('play');
     if (canClick === false || $(current).hasClass('flipcard')) {
         return;
     }
@@ -72,6 +72,7 @@ function card_clicked(current) {
     } else {
         second_card = current;
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
+            $('#2').trigger('play');
             resetCards();
             attempts++;
             matches++;
@@ -85,6 +86,7 @@ function card_clicked(current) {
              }
         }
         else {
+            $('#14').trigger('play');
             attempts++;
             canClick = false;
             get_accuracy();
@@ -106,9 +108,6 @@ function play_music() {
 }
 function victory_music() {
     $('#victory_music').trigger('play');
-}
-function play_sound() {
-    $('#1').trigger('play');
 }
 
 
