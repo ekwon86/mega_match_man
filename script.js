@@ -61,6 +61,7 @@ function reset() {
 // --------------------------- CARD FUNCTIONS ------------------------------ //
 
 function card_clicked(current) {
+    play_sound();
     if (canClick === false || $(current).hasClass('flipcard')) {
         return;
     }
@@ -106,13 +107,15 @@ function play_music() {
 function victory_music() {
     $('#victory_music').trigger('play');
 }
+function play_sound() {
+    $('#1').trigger('play');
+}
 
 
 $(document).ready(function() {
     display_stats();
 
     $('.you-lose').hide();
-
     $('.you-win').hide();
 
     $(".card").click(function(){
