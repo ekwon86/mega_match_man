@@ -64,7 +64,7 @@ header > h1 {
 }
 .reset {
     position: relative;
-    margin: 10vh 1vw;
+    margin: 5vh 1vw;
     color: white;
     background-color: #16ccff;
     text-transform: uppercase;
@@ -113,8 +113,8 @@ header > h1 {
     height: 21vh;
     width: 8vw;
     backface-visibility: hidden;
-    transition
 }
+
 .front > img {
     position: absolute;
     top: 0;
@@ -143,4 +143,12 @@ header > h1 {
     top: 35vh;
     left: 50%;
     transform: translate(-50%, 0%);
+}
+
+.health-container {
+    position: absolute;
+    left: 2.5vw;
+    height: 500px;
+    width: 50px;
+    border: 1px solid black;
 }

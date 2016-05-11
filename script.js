@@ -21,59 +21,51 @@ var accuracy = 0;
 var games_played = 0;
 
 
-//reset cards to null
+// ----------------------------- RESET CARDS TO NULL -------------------------- //
 function resetCards() {
     first_card = null;
     second_card = null;
 }
-//display_stats function
+
+// ----------------------------- DISPLAY STATS ------------------------------- //
 function display_stats() {
-    $('.games-played .value').text(games_played);
-    $('.attempts .value').text(attempts);
-    $('.accuracy .value').text(accuracy + "%");
+    $('.games-played .value').html(games_played);
+    $('.attempts .value').html(attempts);
+    $('.accuracy .value').html(accuracy + "%");
 }
-//accuracy function
+
+// ----------------------------- GET ACCURACY ------------------------------- //
 function get_accuracy() {
-    accuracy = Math.round(matches/ attempts) * 100;
+    accuracy = Math.round((matches/attempts) * 100);
     return accuracy;
 }
-//reset_stats function
-function reset_stats() {
+
+// ----------------------------- RESET GAME -------------------------------- //
+
+function reset() {
+    resetCards();
+    canClick = true;
+    card_flip_timer = null;
+    match_counter = 0;
+    matches = 0;
     attempts = 0;
     accuracy = 0;
-    match_counter = 0;
-    display_stats();
-}
-//reset game function
-function reset() {
-    // first_card = null;
-    // second_card = null;
-    // total_possible_matches = 9;
-    // match_counter = 0;
-    // canClick = true;
-    // card_flip_timer = null;
-    // matches = 0;
-    // attempts = 0;
-    // accuracy = 0;
-    // games_played = 0;
 
     games_played++;
-    reset_stats();
     display_stats();
     $('.card').removeClass('flipcard');
     $('.you-win').fadeOut('slow');
-
 }
 
 
-// -------------------- CARD FUNCTIONS -------------------- //
+// --------------------------- CARD FUNCTIONS ------------------------------ //
 
 //click card function
 function card_clicked(current) {
     if (canClick === false || $(current).hasClass('flipcard')) {
         return;
     }
-    console.log("card_clicked called - current is : ", current);
+    // console.log("card_clicked called - current is : ", current);
 
     $(current).addClass('flipcard');
 
@@ -81,15 +73,13 @@ function card_clicked(current) {
         first_card = current;
     } else {
         second_card = current;
-        console.log($(first_card).find('.frontimage').attr('src'), $(second_card).find('.frontimage').attr('src'));
+        // console.log($(first_card).find('.frontimage').attr('src'), $(second_card).find('.frontimage').attr('src'));
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
             // $(first_card , second_card).addClass('matchedcards');
             // $('.matchedcards').off("click");
             resetCards();
             attempts++;
-            console.log('total attempts equal to ' + attempts);
             matches++;
-            console.log('total matches equal to ' + matches);
             get_accuracy();
             display_stats();
             match_counter++;
@@ -98,12 +88,10 @@ function card_clicked(current) {
         }
         } else {
             attempts++;
-            console.log('total attempts equal to ' + attempts);
             canClick = false;
             get_accuracy();
             display_stats();
             card_flip_timer = setTimeout(function() {
-                console.log('test - 1st card = ',first_card, "2nd card = ", second_card);
                 $(first_card).removeClass('flipcard');
                 $(second_card).removeClass('flipcard');
                 card_flip_timer = null;
@@ -115,15 +103,17 @@ function card_clicked(current) {
 }
 
 
-$(document).ready(function () {
+
+$(document).ready(function() {
     display_stats();
 
     $('.you-lose').hide();
+
     $('.you-win').hide();
+
     $(".card").click(function(){
         card_clicked(this);
     });
-    $('.reset').click(function() {
-        reset();
-    });
+  
+
 });
