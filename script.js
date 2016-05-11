@@ -21,11 +21,6 @@ var accuracy = 0;
 var games_played = 0;
 
 
-// ----------------------------- RESET CARDS TO NULL -------------------------- //
-function resetCards() {
-    first_card = null;
-    second_card = null;
-}
 
 // ----------------------------- DISPLAY STATS ------------------------------- //
 function display_stats() {
@@ -38,6 +33,12 @@ function display_stats() {
 function get_accuracy() {
     accuracy = Math.round((matches/attempts) * 100);
     return accuracy;
+}
+
+// ----------------------------- RESET CARDS TO NULL -------------------------- //
+function resetCards() {
+    first_card = null;
+    second_card = null;
 }
 
 // ----------------------------- RESET GAME -------------------------------- //
@@ -57,15 +58,12 @@ function reset() {
     $('.you-win').fadeOut('slow');
 }
 
-
 // --------------------------- CARD FUNCTIONS ------------------------------ //
 
 function card_clicked(current) {
     if (canClick === false || $(current).hasClass('flipcard')) {
         return;
     }
-
-
     $(current).addClass('flipcard');
 
     if (first_card == null) {
@@ -80,9 +78,12 @@ function card_clicked(current) {
             display_stats();
             match_counter++;
             if (match_counter == total_possible_matches) {
+                $('#start_music').trigger('pause');
+                victory_music();
                 $('.you-win').fadeIn('slow');
+             }
         }
-        } else {
+        else {
             attempts++;
             canClick = false;
             get_accuracy();
@@ -98,6 +99,13 @@ function card_clicked(current) {
     }
 }
 
+// --------------------------- SOUND FUNCTIONS ------------------------------ //
+function play_music() {
+    $('#start_music').trigger('play');
+}
+function victory_music() {
+    $('#victory_music').trigger('play');
+}
 
 
 $(document).ready(function() {
@@ -110,6 +118,5 @@ $(document).ready(function() {
     $(".card").click(function(){
         card_clicked(this);
     });
-  
 
 });

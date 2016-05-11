@@ -16,13 +16,21 @@
     <!------------------ HEADER ------------------>
     <header class="col-md-12 col-s-12 col-xs-12">
         <!--<img src="images/rockmii.png" alt="megamanpic" class="gamelogo">-->
+        <!--<img src="images/dancingman.gif" class="dancingman">-->
         <h1 class="col-md-offset-3 col-md-6 col-s-offset-3 col-s-6  col-xs-offset-3 col-xs-6">Mega Match Man</h1>
     </header>
 
+    <!----------------------------- MUSIC ------------------------------->
 
-    <div class="mid col-md-12 col-s-12 col-xs-12">
-        <!--<section class="health-container"></section>-->
+    <audio id="start_music" src="music/wilystage.mp3" type="audio/wav"></audio>
+    <audio id="victory_music" src="music/victory.mp3" type="audio/wav"></audio>
+
+    <!--------------------------- SOUND EFFECTS ----------------------------->
+
+
+
         <!---------------- STATS CONTAINER ------------------>
+    <div class="mid col-md-12 col-s-12 col-xs-12">
         <section class="stats-container">
             <h3>Stats</h3>
             <div class="games-played"><p class="label">Games Played</p><div class="value"></div></div>
@@ -30,9 +38,10 @@
             <div class="accuracy"><p class="label">Accuracy</p><div class="value"></div></div>
             <div class="aboutandsettings"><a href="about.html">About</a></div>
             <div class="aboutandsettings">Settings</div>
-            <button class="reset" onclick="reset()">Reset Game</button>
+            <button class="reset_button" onclick="reset()">Reset Game</button>
+            <button class="play_music_button" onclick="play_music()">Play Music</button>
+            <!--<button class="pause_music_button" onclick="pause_music()">Pause Music</button>-->
         </section>
-        <!--<img src="images/dancingman.gif" class="dancingman">-->
 
         <!-------------------- GAME AREA -------------------->
         <section class="game-area">
@@ -188,12 +197,6 @@
             <div class="you-win">YOU WIN!</div>
             <div class="you-lose">TRY AGAIN!</div>
         </section>
-        <div class="audio col-md-offset-4 col-md-4">
-            <audio controls class="audiocontrols">
-                <source src="music/wilystage.mp3" type="audio/mpeg">
-            </audio>
-        </div>
-
 </body>
 
 </html>

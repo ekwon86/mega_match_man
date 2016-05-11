@@ -62,7 +62,7 @@ header > h1 {
 .value {
     margin-bottom: 25px;
 }
-.reset {
+.reset_button {
     position: relative;
     margin: 5vh 1vw;
     color: white;
@@ -70,6 +70,15 @@ header > h1 {
     text-transform: uppercase;
     padding: 1vh;
 }
+.play_music_button {
+    position: relative;
+    margin: 1vw;
+    color: white;
+    background-color: #16ccff;
+    text-transform: uppercase;
+    padding: 1vh;
+}
+
 .mid {
     height: 70vh;
     display: flex;
@@ -134,7 +143,7 @@ header > h1 {
     align-items: center;
 }
 .you-win, .you-lose {
-    font-size: 8vh;
+    font-size: 6vh;
     position: absolute;
     background-color: rgba(0,0,0,0.75);
     box-shadow: 10px 10px 10px black;
