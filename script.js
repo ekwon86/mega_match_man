@@ -60,12 +60,11 @@ function reset() {
 
 // --------------------------- CARD FUNCTIONS ------------------------------ //
 
-//click card function
 function card_clicked(current) {
     if (canClick === false || $(current).hasClass('flipcard')) {
         return;
     }
-    // console.log("card_clicked called - current is : ", current);
+
 
     $(current).addClass('flipcard');
 
@@ -73,10 +72,7 @@ function card_clicked(current) {
         first_card = current;
     } else {
         second_card = current;
-        // console.log($(first_card).find('.frontimage').attr('src'), $(second_card).find('.frontimage').attr('src'));
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
-            // $(first_card , second_card).addClass('matchedcards');
-            // $('.matchedcards').off("click");
             resetCards();
             attempts++;
             matches++;
