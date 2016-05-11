@@ -46,11 +46,23 @@ function reset_stats() {
 }
 //reset game function
 function reset() {
+    // first_card = null;
+    // second_card = null;
+    // total_possible_matches = 9;
+    // match_counter = 0;
+    // canClick = true;
+    // card_flip_timer = null;
+    // matches = 0;
+    // attempts = 0;
+    // accuracy = 0;
+    // games_played = 0;
+
     games_played++;
     reset_stats();
     display_stats();
     $('.card').removeClass('flipcard');
     $('.you-win').fadeOut('slow');
+
 }
 
 
