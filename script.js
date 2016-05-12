@@ -1,14 +1,13 @@
 //TODO: want to eventually add health bar and functionality. when
 // user guesses wrong mega man's health will go down.
-// successive
-// match will grant health to player and wrong guesses will
+// successive match will grant health to player and wrong guesses will
 // decrement health.
 
 // come up with way to insert game over song when player loses and
 // victory song when player wins!
 
 
-//global variables
+// GLOBAL VARIABLES
 var first_card = null;
 var second_card = null;
 var total_possible_matches = 9;
@@ -19,7 +18,7 @@ var matches = 0;
 var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
-
+var game_timer = null;
 
 
 // ----------------------------- DISPLAY STATS ------------------------------- //
@@ -51,16 +50,18 @@ function reset() {
     matches = 0;
     attempts = 0;
     accuracy = 0;
-
+    game_timer = null;
     games_played++;
     display_stats();
     $('.card').removeClass('flipcard');
     $('.you-win').fadeOut('slow');
+    $('.you-lose').fadeOut('slow');
 }
 
 // --------------------------- CARD FUNCTIONS ------------------------------ //
 
 function card_clicked(current) {
+
     $('#19').trigger('play');
     if (canClick === false || $(current).hasClass('flipcard')) {
         return;
@@ -69,7 +70,8 @@ function card_clicked(current) {
 
     if (first_card == null) {
         first_card = current;
-    } else {
+    }
+    else {
         second_card = current;
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
             $('#2').trigger('play');
@@ -102,6 +104,12 @@ function card_clicked(current) {
     }
 }
 
+// --------------------------- TIMER FUNCTION ------------------------------ //
+// function game_time() {
+//     $('#game_over').trigger('play');
+//     $('.you-lose').fadeIn('slow');
+// }
+
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
 function play_music() {
     $('#start_music').trigger('play');
@@ -120,5 +128,7 @@ $(document).ready(function() {
     $(".card").click(function(){
         card_clicked(this);
     });
+
+    // game_timer = setTimeout(game_time, 3000);
 
 });
