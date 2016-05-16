@@ -118,9 +118,9 @@ function victory_music() {
     $('#victory_music').trigger('play');
 }
 
-
+// --------------------------- SOUND FUNCTIONS ------------------------------ //
 $(document).ready(function() {
-    $('#stats-container, #game-area').hide();
+    // $('#stats-container, #game-area').hide();
 
     display_stats();
 
