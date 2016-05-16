@@ -99,12 +99,29 @@ header > h1 {
     margin-top: 23vh;
 }
 
-
 #start-game-button {
     font-size: 5vh;
-    padding: 0.75em;
+    padding: 1vh 1vw;
     box-shadow: 2px 15px 28px -7px black;
-    text-shadow: 2px 4px 6px black
+    text-shadow: 2px 4px 6px black;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.modal-dialog {
+    top: 15vh;
+}
+
+.modal-text {
+    text-shadow: 2px 2px 2px #1f3bff;
+    color: deepskyblue;
+}
+
+.modal-header {
+    text-shadow: 2px 2px 2px #1f3bff;
+    color: deepskyblue;
 }
 
 .dancingman {

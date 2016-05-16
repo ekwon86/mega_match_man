@@ -16,53 +16,44 @@
 <body>
 
     <!------------------ HEADER ------------------>
-    <header class="col-md-12 col-s-12 col-xs-12">
+    <header>
         <!--<div class="health-container"></div>-->
         <!--<img src="images/rockmii.png" alt="megamanpic" class="gamelogo">-->
         <!--<img src="images/dancingman.gif" class="dancingman">-->
-        <h1 class="col-md-offset-3 col-md-6 col-s-offset-3 col-s-6  col-xs-offset-3 col-xs-6">Mega Match Man</h1>
+        <h1>Mega Match Man</h1>
     </header>
 
     <!------------------ MODAL ------------------>
-    <!--<div id="start-game-modal">-->
-        <!--<button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal" id="start-game-button">START GAME</button>-->
-        <!--<div class="modal fade" id="myModal" role="dialog">-->
-            <!--<div class="modal-dialog">-->
-                <!--<div class="modal-content">-->
-                    <!--<div class="modal-header">-->
-                        <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                            <!--<h3 class="modal-title">Pick a Game Type!</h3>-->
-        <!--</div>-->
-        <!--<div class="modal-body">-->
-        <!--<div class="radio">-->
-            <!--<label><input type="radio" name="optradio" value="3" class="modal-text">Easy (12 Cards)</label><br>-->
-            <!--<label><input type="radio" name="optradio" value="4" class="modal-text">Normal (18 Cards)</label><br>-->
-            <!--<label><input type="radio" name="optradio" value="5" class="modal-text">Hard (24 Cards)</label><br><br>-->
-        <!--<p class="modal-text">Or Play a <strong style="color:red">Custom </strong>Game!</p>-->
-        <!--<div class="form-group" class="modal-text">-->
-            <!--<label for="sel1" >Select Custom Grid Size</label>-->
-            <!--<select class="form-control" id="sel1"></select>-->
-        <!--</div>-->
-        <!--<div class="form-group" class="modal-text">-->
-            <!--<label for="sel2">Select Total in a Row to Win</label>-->
-                <!--<select class="form-control" id="sel2">-->
-                    <!--<option value = '3'>3</option>-->
-                    <!--<option value = '4'>4</option>-->
-                    <!--<option value = '5'>5</option>-->
-                    <!--<option value = '6'>6</option>-->
-                <!--</select>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="modal-footer">-->
-        <!--<button type="button" class="btn btn-default close-modal" data-dismiss="modal">Confirm-->
-        <!--</button>-->
-        <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-        <!----------------------------- MUSIC ------------------------------->
+    <div id="start-game-modal">
+        <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal" id="start-game-button">START GAME</button>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Pick a Game Type!</h3>
+                    </div>
+            <div class="modal-body">
+            <div class="radio">
+                <label><input type="radio" name="optradio" value="timed" class="modal-text">Regular</label><br>
+                <label><input type="radio" name="optradio" value="18" class="modal-text">Timed</label><br>
+            </div>
+            <p class="modal-text">Pick a Theme</p>
+            <div class="radio">
+                <label><input type="radio" name="optradio" value="daytime" class="modal-text">Daytime</label><br>
+                <label><input type="radio" name="optradio" value="nighttime" class="modal-text">Nighttime</label><br>
+            </div>
+            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default close-modal" data-dismiss="modal" id="close-modal">Confirm
+                    </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------- MUSIC ------------------------------->
     <audio id="start_music" src="music/wilystage.mp3" type="audio/wav"></audio>
     <audio id="victory_music" src="music/victory.mp3" type="audio/wav"></audio>
     <audio id="game_over" src="music/gameover.mp3" type="audio/wav"></audio>
@@ -93,7 +84,7 @@
 
 
     <!---------------- STATS CONTAINER ------------------>
-    <div class="mid col-md-12 col-s-12 col-xs-12">
+    <div class="mid">
         <section id="stats-container">
             <h3>Stats</h3>
             <div class="games-played"><p class="label">Games Played</p><div class="value"></div></div>

@@ -3,9 +3,6 @@
 // successive match will grant health to player and wrong guesses will
 // decrement health.
 
-// come up with way to insert game over song when player loses and
-// victory song when player wins!
-
 
 // GLOBAL VARIABLES
 var first_card = null;
@@ -99,10 +96,18 @@ function card_clicked(current) {
                 card_flip_timer = null;
                 canClick = true;
                 resetCards();
-            }, 1000);
+            }, 800);
         }
     }
 }
+
+// ------------------------ CREATE GAME FUNCTION ------------------------- //
+function create_game() {
+    $('#start-game-button').fadeOut('slow');
+    $('#game-area, #stats-container').show();
+}
+
+
 
 // --------------------------- TIMER FUNCTION ------------------------------ //
 // function game_time() {
@@ -120,17 +125,15 @@ function victory_music() {
 
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
 $(document).ready(function() {
-    $('#stats-container, #game-area').hide();
+    $('#stats-container, #game-area, .you-win, .you-lose').hide();
+
+    $('.close-modal').click(function(){
+       create_game();
+    });
 
     display_stats();
-
-    $('.you-lose').hide();
-    $('.you-win').hide();
 
     $(".card").click(function(){
         card_clicked(this);
     });
-
-    // game_timer = setTimeout(game_time, 3000);
-
 });
