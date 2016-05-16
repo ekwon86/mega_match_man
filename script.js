@@ -120,6 +120,8 @@ function victory_music() {
 
 
 $(document).ready(function() {
+    $('#stats-container, #game-area').hide();
+
     display_stats();
 
     $('.you-lose').hide();
