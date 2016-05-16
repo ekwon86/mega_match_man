@@ -120,7 +120,7 @@ function victory_music() {
 
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
 $(document).ready(function() {
-    // $('#stats-container, #game-area').hide();
+    $('#stats-container, #game-area').hide();
 
     display_stats();
 
