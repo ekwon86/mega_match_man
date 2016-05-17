@@ -5,7 +5,6 @@
 //TODO: put all cards in array (twice for each card) concatenate by itself.
 //TODO: math.random 0 to maximum. and splice it out and keep looping until 0.
 //TODO: use jquery to allocate cards to the play area.
-//TODO: 1 - 16  (if static) and assign them to each position
 
 // GLOBAL VARIABLES
 var first_card = null;
