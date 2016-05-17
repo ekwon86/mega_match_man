@@ -34,22 +34,24 @@
                             <h3 class="modal-title">Let's Play!</h3>
                     </div>
             <div class="modal-body">
-            <p class="modal-text">Pick Game Type</p>
-            <div class="btn-group" data-toggle="buttons">
-                <label><input type="radio" value="regular" id="regular">Regular</label><br>
-                <label><input type="radio" value="timed" id="timed">Timed (1 Minute)</label><br>
-            </div>
-            <p class="modal-text">Pick a Theme</p>
-            <div class="btn-group" data-toggle="buttons">
-                <label><input type="radio" value="daytime" id="daytime">Daytime</label><br>
-                <label><input type="radio" value="nighttime" id="nighttime">Nighttime</label><br>
-            </div>
-            <!--<p class="modal-text">Pick Number Total Number of Cards</p>-->
-            <!--<div class="btn-group" data-toggle="buttons">-->
-            <!--<label><input type="radio" value="12" id="twelve">12</label><br>-->
-            <!--<label><input type="radio" value="18" id="eighteen">18</label><br>-->
-            <!--<label><input type="radio" value="24" id="twentyfour">24</label><br>-->
-            <!--</div>-->
+                <p class="modal-text">Pick Game Type</p>
+                <div class="radio" data-toggle="buttons">
+                    <label>
+                        <input type="radio" value="regular" id="regular">Regular
+                    </label><br>
+                    <label>
+                        <input type="radio" value="timed" id="timed">Timed (1 Minute)
+                    </label><br>
+                </div>
+                <p class="modal-text">Pick a Theme</p>
+                <div class="radio" data-toggle="buttons">
+                    <label>
+                        <input type="radio" value="daytime" id="daytime">Daytime
+                    </label><br>
+                    <label>
+                        <input type="radio" value="nighttime" id="nighttime">Nighttime
+                    </label><br>
+                </div>
             </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default close-modal" data-dismiss="modal" id="close-modal">Confirm
@@ -98,7 +100,12 @@
             <div class="attempts"><p class="label">Attempts</p><div class="value"></div></div>
             <div class="accuracy"><p class="label">Accuracy</p><div class="value"></div></div>
             <div class="aboutandsettings"><a href="about.html">About</a></div>
-            <div class="aboutandsettings">Settings</div>
+            <div class="aboutandsettings">
+                <a href="#"
+                   data-toggle="modal"
+                   data-target="#myModal">Settings</a>
+            </div>
+
             <button class="reset_button" onclick="reset()">Reset Game</button>
             <button class="play_music_button" onclick="play_music()">Play Music</button>
             <!--<button class="pause_music_button" onclick="pause_music()">Pause Music</button>-->

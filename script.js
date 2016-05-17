@@ -147,6 +147,7 @@ $(document).ready(function() {
 
     $('.close-modal').click(function(){
        create_game();
+       reset();
     });
 
     display_stats();
