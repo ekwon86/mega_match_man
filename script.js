@@ -2,7 +2,10 @@
 // user guesses wrong mega man's health will go down.
 // successive match will grant health to player and wrong guesses will
 // decrement health.
-
+//TODO: put all cards in array (twice for each card) concatenate by itself.
+//TODO: math.random 0 to maximum. and splice it out and keep looping until 0.
+//TODO: use jquery to allocate cards to the play area.
+//TODO: 1 - 16  (if static) and assign them to each position
 
 // GLOBAL VARIABLES
 var first_card = null;
@@ -103,17 +106,33 @@ function card_clicked(current) {
 
 // ------------------------ CREATE GAME FUNCTION ------------------------- //
 function create_game() {
-    $('#start-game-button').fadeOut('slow');
+    $('#start-game-button').hide();
+    if ($('#nighttime').is(':checked')) {
+        $('body').css('background-image', 'url(images/background.jpg)');
+        $('.back img').attr('src', 'images/cardback.png');
+        $('.card1 img').attr('src', 'images/flashman2.png');
+        $('.card2 img').attr('src', 'images/bubbleman2.png');
+        $('.card3 img').attr('src', 'images/airman2.png');
+        $('.card4 img').attr('src', 'images/metalman2.png');
+        $('.card5 img').attr('src', 'images/heatman2.png');
+        $('.card6 img').attr('src', 'images/woodman2.png');
+        $('.card7 img').attr('src', 'images/quickman2.png');
+        $('.card8 img').attr('src', 'images/crashman2.png');
+        $('.card9 img').attr('src', 'images/megaman2.png');
+    }
+    else if($('#timed').is(':checked')) {
+       set_game_time();
+    } 
     $('#game-area, #stats-container').show();
 }
 
-
-
 // --------------------------- TIMER FUNCTION ------------------------------ //
-// function game_time() {
-//     $('#game_over').trigger('play');
-//     $('.you-lose').fadeIn('slow');
-// }
+function set_game_time() {
+    game_timer = setTimeout(function() {
+        $('#game_over').trigger('play');
+        $('.you-lose').fadeIn('slow');
+    }, 60000);
+}
 
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
 function play_music() {
