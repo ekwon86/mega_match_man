@@ -69,6 +69,7 @@ header > h1 {
     background-color: #16ccff;
     text-transform: uppercase;
     padding: 1vh;
+    box-shadow: 0px 0px 5px 1px black;
 }
 .play_music_button {
     position: relative;
@@ -78,6 +79,7 @@ header > h1 {
     text-transform: uppercase;
     padding: 1vh;
     bottom: 5vh;
+    box-shadow: 0px 0px 5px 1px black;
 }
 
 .mid {
@@ -95,7 +97,7 @@ header > h1 {
     width: 60vw;
     height: 68vh;
     background-color: rgba(0,0,0, 0.5);
-    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.3);
+    box-shadow: 15px 15px 10px -2px rgba(0,0,0,0.3);
     border-radius: 1%;
     margin-top: 23vh;
 }
@@ -178,13 +180,15 @@ header > h1 {
     align-items: center;
 }
 .you-win, .you-lose {
-    font-size: 6vh;
+    font-size: 10vh;
     position: absolute;
     background-color: rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 10px black;
+    box-shadow: 10px 12px 15px 3px black;
+    text-shadow: 5px 5px 0px white;
     color: #2ad1ff;
-    padding: 0.5em 1.5em;
-    top: 35vh;
+    padding: 2.5vh 9.5vw;
+    top: 37vh;
+    border-radius: 5%;
     left: 50%;
     transform: translate(-50%, 0%);
 }
@@ -197,4 +201,11 @@ header > h1 {
     border: 1px solid black;
 }
 
-@media
+#genepic {
+    width: 100px;
+    height: 100px;
+}
+
+#aboutmetext {
+    letter-spacing: 0.15vw;
+}

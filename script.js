@@ -119,9 +119,9 @@ function create_game() {
         $('.card8 img').attr('src', 'images/crashman2.png');
         $('.card9 img').attr('src', 'images/megaman2.png');
     }
-    else if($('#timed').is(':checked')) {
-       set_game_time();
-    } 
+    else if ($('#timed').is(':checked')) {
+        set_game_time();
+    }
     $('#game-area, #stats-container').show();
 }
 
@@ -130,7 +130,8 @@ function set_game_time() {
     game_timer = setTimeout(function() {
         $('#game_over').trigger('play');
         $('.you-lose').fadeIn('slow');
-    }, 60000);
+
+    }, 5000);
 }
 
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
