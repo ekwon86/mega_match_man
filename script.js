@@ -19,6 +19,23 @@ var accuracy = 0;
 var games_played = 0;
 var game_timer = null;
 
+var base_card_source = ['images/flashman.png','images/bubbleman.png', 'images/airman.png', 'images/metalman.png', 'images/heatman.png', 'images/woodman.png', 'images/quickman.png', 'images/crashman.png', 'images/megaman.png'];
+var card_array = base_card_source.concat(base_card_source);
+var randomized_array = [];
+
+// ------------------------------ RANDOMIZE ---------------------------------- //
+function randomize_cards() {
+    while(card_array.length > 0) {
+        var card_random_number = random_num_generator(card_array.length);
+        var new_card = card_array.splice(card_random_number, 1);
+        randomized_array.push(card_random_number);
+        $('.front img').attr('src', new_card);
+    }
+}
+
+function random_num_generator(max) {
+    return Math.floor(Math.random() * max);
+}
 
 // ----------------------------- DISPLAY STATS ------------------------------- //
 function display_stats() {
@@ -34,15 +51,14 @@ function get_accuracy() {
 }
 
 // ----------------------------- RESET CARDS TO NULL -------------------------- //
-function resetCards() {
+function reset_cards() {
     first_card = null;
     second_card = null;
 }
 
 // ----------------------------- RESET GAME -------------------------------- //
-
 function reset() {
-    resetCards();
+    reset_cards();
     canClick = true;
     card_flip_timer = null;
     match_counter = 0;
@@ -52,13 +68,13 @@ function reset() {
     game_timer = null;
     games_played++;
     display_stats();
+    randomize_cards();
     $('.card').removeClass('flipcard');
     $('.you-win').fadeOut('slow');
     $('.you-lose').fadeOut('slow');
 }
 
 // --------------------------- CARD FUNCTIONS ------------------------------ //
-
 function card_clicked(current) {
 
     $('#19').trigger('play');
@@ -74,7 +90,7 @@ function card_clicked(current) {
         second_card = current;
         if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
             $('#2').trigger('play');
-            resetCards();
+            reset_cards();
             attempts++;
             matches++;
             get_accuracy();
@@ -97,7 +113,7 @@ function card_clicked(current) {
                 $(second_card).removeClass('flipcard');
                 card_flip_timer = null;
                 canClick = true;
-                resetCards();
+                reset_cards();
             }, 800);
         }
     }
@@ -147,6 +163,7 @@ $(document).ready(function() {
     $('#stats-container, #game-area, .you-win, .you-lose').hide();
 
     $('.close-modal').click(function(){
+       randomize_cards();
        create_game();
        reset();
     });
