@@ -33,6 +33,8 @@ function randomize_cards() {
     }
 }
 
+
+
 function random_num_generator(max) {
     return Math.floor(Math.random() * max);
 }
