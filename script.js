@@ -68,7 +68,6 @@ function reset() {
     game_timer = null;
     games_played++;
     display_stats();
-    randomize_cards();
     $('.card').removeClass('flipcard');
     $('.you-win').fadeOut('slow');
     $('.you-lose').fadeOut('slow');
