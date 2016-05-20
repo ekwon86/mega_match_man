@@ -33,12 +33,12 @@ function randomize_cards() {
         
     }
 }
-randomize_cards:function() {
-    while(this.cards.card_array.length > 0) {
-        var card_random_number = random_num_generator(this.cards.card_array.length);
-        var new_card_src = this.cards.card_array[card_random_number];
-        this.cards.card_array.splice(card_random_number, 1);
-        this.cards.randomized_array.push(card_random_number);
+// randomize_cards:function() {
+//     while(this.cards.card_array.length > 0) {
+//         var card_random_number = random_num_generator(this.cards.card_array.length);
+//         var new_card_src = this.cards.card_array[card_random_number];
+//         this.cards.card_array.splice(card_random_number, 1);
+//         this.cards.randomized_array.push(card_random_number);
         var new_card = new this.cards();
         this.card_array.push(new_card);
         new_card.create(new_card_src)
