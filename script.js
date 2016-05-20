@@ -30,21 +30,60 @@ function randomize_cards() {
         var new_card_src = card_array[card_random_number];
         card_array.splice(card_random_number, 1);
         randomized_array.push(card_random_number);
-        
+        var new_card = new this.cards();
+        card_array.push(new_card);
+        create_new_card(new_card_src);
     }
 }
-// randomize_cards:function() {
-//     while(this.cards.card_array.length > 0) {
-//         var card_random_number = random_num_generator(this.cards.card_array.length);
-//         var new_card_src = this.cards.card_array[card_random_number];
-//         this.cards.card_array.splice(card_random_number, 1);
-//         this.cards.randomized_array.push(card_random_number);
+
+function create_new_card(front_src){
+    var card_div = $("<div>",{
+        class: 'card'
+    });
+    var front_div = $("<div>", {
+        class: 'front'
+    });
+    var front_img = $("<div>", {
+        src: front_src,
+        class: 'frontimage'
+    });
+    front_div.append(front_img);
+    var back_div = $("<div>", {
+        class: 'back'
+    });
+    var back_img = $("<img>", {
+        src: 'images/cardback2.jpg',
+        class: ''
+    })
+}
+
+randomize_cards:function() {
+    while(this.cards.card_array.length > 0) {
+        var card_random_number = random_num_generator(this.cards.card_array.length);
+        var new_card_src = this.cards.card_array[card_random_number];
+        this.cards.card_array.splice(card_random_number, 1);
+        this.cards.randomized_array.push(card_random_number);
         var new_card = new this.cards();
         this.card_array.push(new_card);
         new_card.create(new_card_src)
     }
-},
+}
 
+        this.card_div = $("<div>",{
+            class: 'card'
+        });
+
+
+        var back_img = $("<img>",{
+            src: 'images/cardback2.jpg',
+            class: 'frontimage'
+        });
+        back_div.append(back_img);
+        //put the front and back into the card container
+        this.card_div.append(front_div, back_div);
+        return this;
+    }
+},
 
 function random_num_generator(max) {
     return Math.floor(Math.random() * max);
