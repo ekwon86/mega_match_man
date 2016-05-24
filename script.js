@@ -6,6 +6,12 @@
 //TODO: math.random 0 to maximum. and splice it out and keep looping until 0.
 //TODO: use jquery to allocate cards to the play area.
 
+
+//TODO: Put card variables in card object
+//TODO: Put stats variables in stat object
+//TODO: Put cards and stats in game object
+
+
 // GLOBAL VARIABLES
 var first_card = null;
 var second_card = null;
@@ -210,6 +216,7 @@ function victory_music() {
 }
 
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
+
 $(document).ready(function() {
     $('.you-win, .you-lose, #game-area, #stats-container').hide();
 
