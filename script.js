@@ -211,10 +211,10 @@ function victory_music() {
 
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
 $(document).ready(function() {
-    $('.you-win, .you-lose').hide();
+    $('.you-win, .you-lose, #game-area, #stats-container').hide();
 
     $('.close-modal').click(function(){
-       randomize_cards();
+       // randomize_cards();
        create_game();
        reset();
     });
