@@ -1,33 +1,50 @@
 //TODO: want to eventually add health bar and functionality. when
 // user guesses wrong mega man's health will go down.
 // successive match will grant health to player and wrong guesses will
-// decrement health.
-//TODO: put all cards in array (twice for each card) concatenate by itself.
-//TODO: math.random 0 to maximum. and splice it out and keep looping until 0.
-//TODO: use jquery to allocate cards to the play area.
 
 
-//TODO: Put card variables in card object
-//TODO: Put stats variables in stat object
-//TODO: Put cards and stats in game object
+/**** CARD CONSTRUCTOR ****/
+function card_constructor() {
+    var first_card = null;
+    var second_card = null;
+    this.canClick = true;
+    this.card_flip_timer = null;
+    var card_array = [
+        'images/flashman.png',
+        'images/bubbleman.png',
+        'images/metalman.png',
+        'images/airman.png',
+        'images/heatman.png',
+        'images/woodman.png',
+        'images/quickman.png',
+        'images/crashman.png',
+        'images/megaman.png'
+    ];
 
+    this.reset_cards = function() {
+        first_card = null;
+        second_card = null;
+    };
 
-// GLOBAL VARIABLES
-var first_card = null;
-var second_card = null;
+    /** CARD RANDOMIZER **/
+    this.randomize_cards = function() {
+        var randomized_card_array = card_array.concat(card_array);
+        var slots = randomized_card_array.length;
+        var images_copy = [];
+        
+        while (randomized_card_array > 0){
+            
+        }
+    }
+}
+
 var total_possible_matches = 9;
 var match_counter = 0;
-var canClick = true;
-var card_flip_timer = null;
 var matches = 0;
 var attempts = 0;
 var accuracy = 0;
 var games_played = 0;
 var game_timer = null;
-
-var base_card_source = ['images/flashman.png','images/bubbleman.png', 'images/airman.png', 'images/metalman.png', 'images/heatman.png', 'images/woodman.png', 'images/quickman.png', 'images/crashman.png', 'images/megaman.png'];
-var card_array = base_card_source.concat(base_card_source);
-var randomized_array = [];
 
 // ------------------------------ RANDOMIZE ---------------------------------- //
 // function randomize_cards() {
