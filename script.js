@@ -1,5 +1,5 @@
 /********************************************** CARD CONSTRUCTOR **********************************************/
-function card_constructor() {
+function card() {
     var first_card = null;
     var second_card = null;
     this.canClick = true;
@@ -59,16 +59,15 @@ function card_constructor() {
 
         else {
             second_card = current;
-
-            if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
+            if ($(first_card).find('.front img').attr('src') == $(second_card).find('.front img').attr('src')) {
                 $('#2').trigger('play');
                 reset_cards();
-                attempts++;
-                matches++;
-                get_accuracy();
-                display_stats();
-                match_counter++;
-                if (match_counter == total_possible_matches) {
+                game.attempts++;
+                game.matches++;
+                game.get_accuracy();
+                game.display_stats();
+                game.match_counter++;
+                if (game.match_counter == game.total_possible_matches) {
                     $('#start_music').trigger('pause');
                     victory_music();
                     $('.you-win').fadeIn('slow');
@@ -76,16 +75,16 @@ function card_constructor() {
             }
             else {
                 $('#14').trigger('play');
-                attempts++;
+                game.attempts++;
                 canClick = false;
-                get_accuracy();
-                display_stats();
-                card_flip_timer = setTimeout(function() {
+                game.get_accuracy();
+                game.display_stats();
+                card.card_flip_timer = setTimeout(function() {
                     $(first_card).removeClass('flipcard');
                     $(second_card).removeClass('flipcard');
-                    card_flip_timer = null;
+                    card.card_flip_timer = null;
                     canClick = true;
-                    reset_cards();
+                    card.reset_cards();
                 }, 800);
             }
         }
@@ -93,53 +92,55 @@ function card_constructor() {
 }
 
 
+
 /********************************************** GAME OBJECT **********************************************/
 var game = {
+    matches: 0,
     match_counter: 0,
+    total_possible_matches: 9,
     attempts: 0,
     accuracy: 0,
     games_played: 0,
     game_timer: null,
     total_cards: 18,
-    total_possible_matches: this.total_cards / 2
 
     /** INITIALIZE **/
-    this.init = function() {
-        card_constructor.randomize_cards();
+    init: function() {
+        console.log('Game initialized');
+        card.randomize_cards();
         this.display_stats();
     },
 
     /** DISPLAY STATS **/
-    this.display_stats = function() {
-        $('.games-played .value').html(games_played);
-        $('.attempts .value').html(attempts);
-        $('.accuracy .value').html(accuracy + "%");
+    display_stats: function() {
+        $('.games-played .value').html(this.games_played);
+        $('.attempts .value').html(this.attempts);
+        $('.accuracy .value').html(this.accuracy + "%");
     },
 
     /** RESET STATS **/
-    this.reset = function() {
-        card_constructor.reset_cards();
-        card_constructor.canClick = true;
-        card_constructor.card_flip_timer = null;
-        game.match_counter = 0;
+    reset: function() {
+        card.reset_cards();
+        card.canClick = true;
+        card.card_flip_timer = null;
         this.matches = 0;
-        game.attempts = 0;
-        game.accuracy = 0;
-        game.game_timer = null;
-        game.games_played++;
-        game.display_stats();
+        this.attempts = 0;
+        this.accuracy = 0;
+        this.game_timer = null;
+        this.games_played++;
+        this.display_stats();
         $('.card').removeClass('flipcard');
         $('.you-win').fadeOut('slow');
         $('.you-lose').fadeOut('slow');
-    };
+    },
 
     /** SET ACCURACY **/
-    this.set_accuracy = function() {
-        game.accuracy = Math.round((matches/attempts) * 100);
-        return accuracy;
-    };
+    get_accuracy: function() {
+        game.accuracy = Math.round((game.matches/game.attempts) * 100);
+        return game.accuracy;
+    }
 
-}
+};
 
 // ------------------------ CREATE GAME FUNCTION ------------------------- //
 // function create_game() {
@@ -188,7 +189,7 @@ $(document).ready(function() {
     game.init();
 
     $(".card").click(function(){
-        card_constructor.card_clicked(this);
+        card.card_clicked(this);
     });
     
 });
