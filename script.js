@@ -13,15 +13,15 @@ var game = {
     game_timer: null,
     total_cards: 18,
     card_array: [
-        'images/flashman.png',
-        'images/bubbleman.png',
-        'images/metalman.png',
-        'images/airman.png',
-        'images/heatman.png',
-        'images/woodman.png',
-        'images/quickman.png',
-        'images/crashman.png',
-        'images/megaman.png'
+        'images/flashman2.png',
+        'images/bubbleman2.png',
+        'images/metalman2.png',
+        'images/airman2.png',
+        'images/heatman2.png',
+        'images/woodman2.png',
+        'images/quickman2.png',
+        'images/crashman2.png',
+        'images/megaman2.png'
     ],
 
     /************ INITIALIZE ************/
@@ -133,7 +133,7 @@ var game = {
                 this.canClick = false;
                 this.get_accuracy();
                 this.display_stats();
-                this.unflip_cards();
+                game.unflip_cards();
             }
         }
     },
