@@ -1,60 +1,9 @@
-/********************************************** CARD CONSTRUCTOR **********************************************/
-function card_constructor() {
-    var first_card = null;
-    var second_card = null;
-    this.canClick = true;
-    this.card_flip_timer = null;
-
-    /** CARD CLICK **/
-
-    this.card_clicked = function(current){
-        console.log('test');
-        $('#19').trigger('play');
-        if (canClick === false || $(current).hasClass('flipcard')) {
-            return;
-        }
-        $(current).addClass('flipcard');
-
-        if (first_card == null) {
-            first_card = current;
-        }
-
-        else {
-            second_card = current;
-            if ($(first_card).find('.front img').attr('src') == $(second_card).find('.front img').attr('src')) {
-                $('#2').trigger('play');
-                reset_cards();
-                game.attempts++;
-                game.matches++;
-                game.get_accuracy();
-                game.display_stats();
-                game.match_counter++;
-                if (game.match_counter == game.total_possible_matches) {
-                    $('#start_music').trigger('pause');
-                    victory_music();
-                    $('.you-win').fadeIn('slow');
-                }
-            }
-            else {
-                $('#14').trigger('play');
-                game.attempts++;
-                canClick = false;
-                game.get_accuracy();
-                game.display_stats();
-                card_constructor.card_flip_timer = setTimeout(function() {
-                    $(first_card).removeClass('flipcard');
-                    $(second_card).removeClass('flipcard');
-                    card_constructor.card_flip_timer = null;
-                    canClick = true;
-                    card_constructor.reset_cards();
-                }, 800);
-            }
-        }
-    }
-}
-
 /********************************************** GAME OBJECT **********************************************/
 var game = {
+    canClick: true,
+    card_flip_timer: true,
+    first_card: null,
+    second_card: null,
     matches: 0,
     match_counter: 0,
     total_possible_matches: 9,
@@ -64,43 +13,43 @@ var game = {
     game_timer: null,
     total_cards: 18,
     card_array: [
-    'images/flashman.png',
-    'images/bubbleman.png',
-    'images/metalman.png',
-    'images/airman.png',
-    'images/heatman.png',
-    'images/woodman.png',
-    'images/quickman.png',
-    'images/crashman.png',
-    'images/megaman.png'
+        'images/flashman.png',
+        'images/bubbleman.png',
+        'images/metalman.png',
+        'images/airman.png',
+        'images/heatman.png',
+        'images/woodman.png',
+        'images/quickman.png',
+        'images/crashman.png',
+        'images/megaman.png'
     ],
 
     /************ INITIALIZE ************/
-    init: function() {
+    init: function () {
         console.log('Game initialized');
         this.randomize_cards();
         this.display_stats();
     },
 
     /************ DISPLAY STATS ************/
-    display_stats: function() {
+    display_stats: function () {
         $('.games-played .value').html(this.games_played);
         $('.attempts .value').html(this.attempts);
         $('.accuracy .value').html(this.accuracy + "%");
     },
 
     /************ CARD RANDOMIZER ************/
-    randomize_cards: function() {
-    var randomized_array = this.card_array.concat(this.card_array);
-    var randomized_array_length = randomized_array.length;
-    var images_copy = [];
+    randomize_cards: function () {
+        var randomized_array = this.card_array.concat(this.card_array);
+        var randomized_array_length = randomized_array.length;
+        var images_copy = [];
 
-        for (var i = 0; i < randomized_array_length; i++){
+        for (var i = 0; i < randomized_array_length; i++) {
             var random_num = Math.floor((Math.random() * randomized_array.length));
             images_copy.push(randomized_array.splice(random_num, 1));
         }
 
-        for (var j = 0; j < game.total_cards; j++){
+        for (var j = 0; j < this.total_cards; j++) {
             var card = $('<div>').addClass('card');
             var back = $('<div>').addClass('back').html('<img src=images/cardback2.jpg');
             var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '"></div>');
@@ -111,31 +60,86 @@ var game = {
     },
 
     /** RESET CARDS **/
-    reset_cards: function() {
-    cards.first_card = null;
-    cards.second_card = null;
+    reset_cards: function () {
+        this.first_card = null;
+        this.second_card = null;
     },
 
     /************ RESET STATS ************/
-    reset: function() {
+    reset: function () {
         this.reset_cards();
-        card_constructor.canClick = true;
-        card_constructor.card_flip_timer = null;
+        this.canClick = true;
+        this.card_flip_timer = null;
         this.matches = 0;
         this.attempts = 0;
         this.accuracy = 0;
         this.game_timer = null;
         this.games_played++;
         this.display_stats();
-        $('.card_constructor').removeClass('flipcard');
+        $('.cards').removeClass('flipcard');
         $('.you-win').fadeOut('slow');
         $('.you-lose').fadeOut('slow');
     },
 
     /************ SET ACCURACY ************/
-    get_accuracy: function() {
-        game.accuracy = Math.round((game.matches/game.attempts) * 100);
-        return game.accuracy;
+    get_accuracy: function () {
+        this.accuracy = Math.round((this.matches / this.attempts) * 100);
+        return this.accuracy;
+    },
+
+    card_clicked: function (current) {
+        // var self = this;
+        console.log('test');
+        $('#19').trigger('play');
+        if (this.canClick === false || $(current).hasClass('flipcard')) {
+            return;
+        }
+        $(current).addClass('flipcard');
+
+        if (this.first_card == null) {
+            this.first_card = current;
+        }
+        else {
+            this.second_card = current;
+            if ($(this.first_card).find('.front img').attr('src') == $(this.second_card).find('.front img').attr('src')) {
+                $('#2').trigger('play');
+                this.reset_cards();
+                this.attempts++;
+                this.matches++;
+                this.get_accuracy();
+                this.display_stats();
+                this.match_counter++;
+                if (this.match_counter == this.total_possible_matches) {
+                    $('#start_music').trigger('pause');
+                    this.victory_music();
+                    $('.you-win').fadeIn('slow');
+                }
+            }
+            else {
+                $('#14').trigger('play');
+                this.attempts++;
+                this.canClick = false;
+                this.get_accuracy();
+                this.display_stats();
+                this.card_flip_timer = setTimeout(function () {
+                    $(this.first_card).removeClass('flipcard');
+                    $(this.second_card).removeClass('flipcard');
+                    this.card_flip_timer = null;
+                    this.canClick = true;
+                    this.reset_cards();
+                }, 800);
+            }
+        }
+
+
+    },
+
+    play_music: function() {
+        $('#start_music').trigger('play');
+    },
+
+    victory_music: function() {
+        $('#victory_music').trigger('play');
     }
 
 };
@@ -170,24 +174,26 @@ var game = {
 //
 //     }, 5000);
 // }
-
+//
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
-function play_music() {
-    $('#start_music').trigger('play');
-}
-function victory_music() {
-    $('#victory_music').trigger('play');
-}
 
-// --------------------------- SOUND FUNCTIONS ------------------------------ //
+
 
 $(document).ready(function() {
     $('.you-win, .you-lose').hide();
 
     game.init();
 
-    $(".card_constructor").click(function(){
-        card_constructor.card_clicked(this);
+    $("#reset").on('click', function() {
+        game.reset();
+    });
+
+    $("#play").on('click', function() {
+        game.play_music();
+    });
+
+    $('.card').on('click', function() {
+        game.card_clicked(this);
     });
     
 });

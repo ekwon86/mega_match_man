@@ -62,7 +62,7 @@ header > h1 {
 .value {
     margin-bottom: 25px;
 }
-.reset_button {
+#reset{
     position: relative;
     margin: 5vh 1vw;
     color: white;
@@ -71,7 +71,7 @@ header > h1 {
     padding: 1vh;
     box-shadow: 0px 0px 5px 1px black;
 }
-.play_music_button {
+#play {
     position: relative;
     margin: 1vw;
     color: white;
