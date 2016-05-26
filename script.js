@@ -59,7 +59,7 @@ var game = {
         }
     },
 
-    /** RESET CARDS **/
+    /************* RESET CARDS ************/
     reset_cards: function () {
         this.first_card = null;
         this.second_card = null;
@@ -87,6 +87,7 @@ var game = {
         return this.accuracy;
     },
 
+    /************ UNFLIP CARDS ************/
     unflip_cards: function() {
         this.canClick = false;
         this.card_flip_timer = setTimeout(function() {
@@ -96,6 +97,7 @@ var game = {
         }, 800);
     },
 
+    /************ CARDS CLICKED ************/
     card_clicked: function (current) {
         // var self = this;
         console.log('test');
@@ -135,7 +137,7 @@ var game = {
             }
         }
     },
-
+    /************ PLAY MUSIC ************/
     play_music: function() {
         $('#start_music').trigger('play');
     },
