@@ -95,26 +95,26 @@ function card_constructor() {
 
 /********************************************** GAME OBJECT **********************************************/
 var game = {
-    this.match_counter = 0;
-    this.attempts = 0;
-    this.accuracy = 0;
-    this.games_played = 0;
-    this.game_timer = null;
-    this.total_cards = 18;
-    this.total_possible_matches = this.total_cards / 2;
+    match_counter: 0,
+    attempts: 0,
+    accuracy: 0,
+    games_played: 0,
+    game_timer: null,
+    total_cards: 18,
+    total_possible_matches: this.total_cards / 2
 
     /** INITIALIZE **/
     this.init = function() {
         card_constructor.randomize_cards();
         this.display_stats();
-    };
+    },
 
     /** DISPLAY STATS **/
     this.display_stats = function() {
         $('.games-played .value').html(games_played);
         $('.attempts .value').html(attempts);
         $('.accuracy .value').html(accuracy + "%");
-    };
+    },
 
     /** RESET STATS **/
     this.reset = function() {
