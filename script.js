@@ -1,47 +1,9 @@
 /********************************************** CARD CONSTRUCTOR **********************************************/
-function card() {
+function card_constructor() {
     var first_card = null;
     var second_card = null;
     this.canClick = true;
     this.card_flip_timer = null;
-    var card_array = [
-        'images/flashman.png',
-        'images/bubbleman.png',
-        'images/metalman.png',
-        'images/airman.png',
-        'images/heatman.png',
-        'images/woodman.png',
-        'images/quickman.png',
-        'images/crashman.png',
-        'images/megaman.png'
-    ];
-
-    /** RESET CARDS **/
-    this.reset_cards = function() {
-        first_card = null;
-        second_card = null;
-    };
-
-    /** CARD RANDOMIZER **/
-    this.randomize_cards = function() {
-        var randomized_array = card_array.concat(card_array);
-        var randomized_array_length = randomized_array.length;
-        var images_copy = [];
-        
-        for (var i = 0; i < randomized_array_length; i++){
-            var random_num = Math.floor((Math.random() * randomized_array.length));
-            images_copy.push(randomized_array.splice(random_num, 1));
-        }
-        
-        for (var j = 0; j < game.total_cards; j++){
-            var card = $('<div>').addClass('card');
-            var back = $('<div>').addClass('back').html('<img src=images/cardback2.jpg');
-            var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '"></div>');
-            card.append(front);
-            card.append(back);
-            $('#game-area').append(card);
-        }
-    };
 
     /** CARD CLICK **/
 
@@ -79,19 +41,17 @@ function card() {
                 canClick = false;
                 game.get_accuracy();
                 game.display_stats();
-                card.card_flip_timer = setTimeout(function() {
+                card_constructor.card_flip_timer = setTimeout(function() {
                     $(first_card).removeClass('flipcard');
                     $(second_card).removeClass('flipcard');
-                    card.card_flip_timer = null;
+                    card_constructor.card_flip_timer = null;
                     canClick = true;
-                    card.reset_cards();
+                    card_constructor.reset_cards();
                 }, 800);
             }
         }
     }
 }
-
-
 
 /********************************************** GAME OBJECT **********************************************/
 var game = {
@@ -103,38 +63,76 @@ var game = {
     games_played: 0,
     game_timer: null,
     total_cards: 18,
+    card_array: [
+    'images/flashman.png',
+    'images/bubbleman.png',
+    'images/metalman.png',
+    'images/airman.png',
+    'images/heatman.png',
+    'images/woodman.png',
+    'images/quickman.png',
+    'images/crashman.png',
+    'images/megaman.png'
+    ],
 
-    /** INITIALIZE **/
+    /************ INITIALIZE ************/
     init: function() {
         console.log('Game initialized');
-        card.randomize_cards();
+        this.randomize_cards();
         this.display_stats();
     },
 
-    /** DISPLAY STATS **/
+    /************ DISPLAY STATS ************/
     display_stats: function() {
         $('.games-played .value').html(this.games_played);
         $('.attempts .value').html(this.attempts);
         $('.accuracy .value').html(this.accuracy + "%");
     },
 
-    /** RESET STATS **/
+    /************ CARD RANDOMIZER ************/
+    randomize_cards: function() {
+    var randomized_array = this.card_array.concat(this.card_array);
+    var randomized_array_length = randomized_array.length;
+    var images_copy = [];
+
+        for (var i = 0; i < randomized_array_length; i++){
+            var random_num = Math.floor((Math.random() * randomized_array.length));
+            images_copy.push(randomized_array.splice(random_num, 1));
+        }
+
+        for (var j = 0; j < game.total_cards; j++){
+            var card = $('<div>').addClass('card');
+            var back = $('<div>').addClass('back').html('<img src=images/cardback2.jpg');
+            var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '"></div>');
+            $(card).append(front);
+            $(card).append(back);
+            $('#game-area').append(card);
+        }
+    },
+
+    /** RESET CARDS **/
+    reset_cards: function() {
+    cards.first_card = null;
+    cards.second_card = null;
+    },
+
+    /************ RESET STATS ************/
     reset: function() {
-        card.reset_cards();
-        card.canClick = true;
-        card.card_flip_timer = null;
+        this.reset_cards();
+        card_constructor.canClick = true;
+        card_constructor.card_flip_timer = null;
         this.matches = 0;
         this.attempts = 0;
         this.accuracy = 0;
         this.game_timer = null;
         this.games_played++;
         this.display_stats();
-        $('.card').removeClass('flipcard');
+        $('.card_constructor').removeClass('flipcard');
         $('.you-win').fadeOut('slow');
         $('.you-lose').fadeOut('slow');
     },
 
-    /** SET ACCURACY **/
+    /************ SET ACCURACY ************/
     get_accuracy: function() {
         game.accuracy = Math.round((game.matches/game.attempts) * 100);
         return game.accuracy;
@@ -188,8 +186,8 @@ $(document).ready(function() {
 
     game.init();
 
-    $(".card").click(function(){
-        card.card_clicked(this);
+    $(".card_constructor").click(function(){
+        card_constructor.card_clicked(this);
     });
     
 });
