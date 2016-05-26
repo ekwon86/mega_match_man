@@ -51,8 +51,8 @@ var game = {
 
         for (var j = 0; j < this.total_cards; j++) {
             var card = $('<div>').addClass('card');
-            var back = $('<div>').addClass('back').html('<img src=images/cardback2.jpg');
-            var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '"></div>');
+            var back = $('<div>').addClass('back').html('<img src="images/cardback2.jpg">');
+            var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '">');
             $(card).append(front);
             $(card).append(back);
             $('#game-area').append(card);
@@ -87,6 +87,15 @@ var game = {
         return this.accuracy;
     },
 
+    unflip_cards: function() {
+        this.canClick = false;
+        this.card_flip_timer = setTimeout(function() {
+            this.card_flip_timer = null;
+            this.first_card.removeClass('flipcard');
+            this.second_card.removeClass('flipcard');
+        }, 800);
+    },
+
     card_clicked: function (current) {
         // var self = this;
         console.log('test');
@@ -99,6 +108,7 @@ var game = {
         if (this.first_card == null) {
             this.first_card = current;
         }
+
         else {
             this.second_card = current;
             if ($(this.first_card).find('.front img').attr('src') == $(this.second_card).find('.front img').attr('src')) {
@@ -121,17 +131,9 @@ var game = {
                 this.canClick = false;
                 this.get_accuracy();
                 this.display_stats();
-                this.card_flip_timer = setTimeout(function () {
-                    $(this.first_card).removeClass('flipcard');
-                    $(this.second_card).removeClass('flipcard');
-                    this.card_flip_timer = null;
-                    this.canClick = true;
-                    this.reset_cards();
-                }, 800);
+                this.unflip_cards();
             }
         }
-
-
     },
 
     play_music: function() {
