@@ -1,5 +1,5 @@
-/*********************** CARD CONSTRUCTOR ***********************/
-function cards() {
+/********************************************** CARD CONSTRUCTOR **********************************************/
+function card_constructor() {
     var first_card = null;
     var second_card = null;
     this.canClick = true;
@@ -16,12 +16,13 @@ function cards() {
         'images/megaman.png'
     ];
 
+    /** RESET CARDS **/
     this.reset_cards = function() {
         first_card = null;
         second_card = null;
     };
 
-
+    /** CARD RANDOMIZER **/
     this.randomize_cards = function() {
         var randomized_array = card_array.concat(card_array);
         var randomized_array_length = randomized_array.length;
@@ -34,18 +35,66 @@ function cards() {
         
         for (var j = 0; j < game.total_cards; j++){
             var card = $('<div>').addClass('card');
-            var back = $('<div>').addClass('back').html('<img src=images/cardback2.jpg')
+            var back = $('<div>').addClass('back').html('<img src=images/cardback2.jpg');
             var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '"></div>');
             card.append(front);
             card.append(back);
             $('#game-area').append(card);
         }
+    };
+
+    /** CARD CLICK **/
+
+    this.card_clicked = function(current){
+        console.log('test');
+        $('#19').trigger('play');
+        if (canClick === false || $(current).hasClass('flipcard')) {
+            return;
+        }
+        $(current).addClass('flipcard');
+
+        if (first_card == null) {
+            first_card = current;
+        }
+
+        else {
+            second_card = current;
+
+            if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
+                $('#2').trigger('play');
+                reset_cards();
+                attempts++;
+                matches++;
+                get_accuracy();
+                display_stats();
+                match_counter++;
+                if (match_counter == total_possible_matches) {
+                    $('#start_music').trigger('pause');
+                    victory_music();
+                    $('.you-win').fadeIn('slow');
+                }
+            }
+            else {
+                $('#14').trigger('play');
+                attempts++;
+                canClick = false;
+                get_accuracy();
+                display_stats();
+                card_flip_timer = setTimeout(function() {
+                    $(first_card).removeClass('flipcard');
+                    $(second_card).removeClass('flipcard');
+                    card_flip_timer = null;
+                    canClick = true;
+                    reset_cards();
+                }, 800);
+            }
+        }
     }
 }
 
 
-/*********************** GAME CONSTRUCTOR ***********************/
-function game() {
+/********************************************** GAME OBJECT **********************************************/
+var game = {
     this.match_counter = 0;
     this.attempts = 0;
     this.accuracy = 0;
@@ -56,7 +105,7 @@ function game() {
 
     /** INITIALIZE **/
     this.init = function() {
-        cards.randomize_cards();
+        card_constructor.randomize_cards();
         this.display_stats();
     };
 
@@ -69,145 +118,27 @@ function game() {
 
     /** RESET STATS **/
     this.reset = function() {
-        cards.reset_cards();
-        cards.canClick = true;
-        cards.card_flip_timer = null;
-        this.match_counter = 0;
+        card_constructor.reset_cards();
+        card_constructor.canClick = true;
+        card_constructor.card_flip_timer = null;
+        game.match_counter = 0;
         this.matches = 0;
-        this.attempts = 0;
-        this.accuracy = 0;
-        this.game_timer = null;
-        this.games_played++;
-        display_stats();
+        game.attempts = 0;
+        game.accuracy = 0;
+        game.game_timer = null;
+        game.games_played++;
+        game.display_stats();
         $('.card').removeClass('flipcard');
         $('.you-win').fadeOut('slow');
         $('.you-lose').fadeOut('slow');
-    }
+    };
 
-}
+    /** SET ACCURACY **/
+    this.set_accuracy = function() {
+        game.accuracy = Math.round((matches/attempts) * 100);
+        return accuracy;
+    };
 
-
-// ------------------------------ RANDOMIZE ---------------------------------- //
-// function randomize_cards() {
-//     while(card_array.length > 0) {
-//         var card_random_number = random_num_generator(card_array.length);
-//         var new_card_src = card_array[card_random_number];
-//         card_array.splice(card_random_number, 1);
-//         randomized_array.push(card_random_number);
-//         var new_card = new this.cards();
-//         card_array.push(new_card);
-//         create_new_card(new_card_src);
-//     }
-// }
-//
-// function create_new_card(front_src){
-//     var card_div = $("<div>",{
-//         class: 'card'
-//     });
-//     var front_div = $("<div>", {
-//         class: 'front'
-//     });
-//     var front_img = $("<div>", {
-//         src: front_src,
-//         class: 'frontimage'
-//     });
-//     front_div.append(front_img);
-//     var back_div = $("<div>", {
-//         class: 'back'
-//     });
-//     var back_img = $("<img>", {
-//         src: 'images/cardback2.jpg',
-//         class: ''
-//     })
-// }
-//
-// randomize_cards:function() {
-//     while(this.cards.card_array.length > 0) {
-//         var card_random_number = random_num_generator(this.cards.card_array.length);
-//         var new_card_src = this.cards.card_array[card_random_number];
-//         this.cards.card_array.splice(card_random_number, 1);
-//         this.cards.randomized_array.push(card_random_number);
-//         var new_card = new this.cards();
-//         this.card_array.push(new_card);
-//         new_card.create(new_card_src)
-//     }
-// }
-//
-//         this.card_div = $("<div>",{
-//             class: 'card'
-//         });
-//
-//
-//         var back_img = $("<img>",{
-//             src: 'images/cardback2.jpg',
-//             class: 'frontimage'
-//         });
-//         back_div.append(back_img);
-//         //put the front and back into the card container
-//         this.card_div.append(front_div, back_div);
-//         return this;
-//     }
-// },
-//
-// function random_num_generator(max) {
-//     return Math.floor(Math.random() * max);
-// }
-
-
-// ----------------------------- GET ACCURACY ------------------------------- //
-function get_accuracy() {
-    accuracy = Math.round((matches/attempts) * 100);
-    return accuracy;
-}
-
-// ----------------------------- RESET GAME -------------------------------- //
-function reset() {
-
-}
-
-// --------------------------- CARD FUNCTIONS ------------------------------ //
-function card_clicked(current) {
-
-    $('#19').trigger('play');
-    if (canClick === false || $(current).hasClass('flipcard')) {
-        return;
-    }
-    $(current).addClass('flipcard');
-
-    if (first_card == null) {
-        first_card = current;
-    }
-    else {
-        second_card = current;
-        if ($(first_card).find('.frontimage').attr('src') == $(second_card).find('.frontimage').attr('src')) {
-            $('#2').trigger('play');
-            reset_cards();
-            attempts++;
-            matches++;
-            get_accuracy();
-            display_stats();
-            match_counter++;
-            if (match_counter == total_possible_matches) {
-                $('#start_music').trigger('pause');
-                victory_music();
-                $('.you-win').fadeIn('slow');
-             }
-        }
-        else {
-            $('#14').trigger('play');
-            attempts++;
-            canClick = false;
-            get_accuracy();
-            display_stats();
-            card_flip_timer = setTimeout(function() {
-                $(first_card).removeClass('flipcard');
-                $(second_card).removeClass('flipcard');
-                card_flip_timer = null;
-                canClick = true;
-                reset_cards();
-            }, 800);
-        }
-    }
 }
 
 // ------------------------ CREATE GAME FUNCTION ------------------------- //
@@ -232,14 +163,14 @@ function card_clicked(current) {
 //     $('#game-area, #stats-container').show();
 // }
 
-// --------------------------- TIMER FUNCTION ------------------------------ //
-function set_game_time() {
-    game_timer = setTimeout(function() {
-        $('#game_over').trigger('play');
-        $('.you-lose').fadeIn('slow');
-
-    }, 5000);
-}
+// // --------------------------- TIMER FUNCTION ------------------------------ //
+// function set_game_time() {
+//     game_timer = setTimeout(function() {
+//         $('#game_over').trigger('play');
+//         $('.you-lose').fadeIn('slow');
+//
+//     }, 5000);
+// }
 
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
 function play_music() {
@@ -252,17 +183,12 @@ function victory_music() {
 // --------------------------- SOUND FUNCTIONS ------------------------------ //
 
 $(document).ready(function() {
-    $('.you-win, .you-lose).hide();
+    $('.you-win, .you-lose').hide();
 
-    $('.close-modal').click(function(){
-       // randomize_cards();
-       create_game();
-       reset();
-    });
-
-    display_stats();
+    game.init();
 
     $(".card").click(function(){
-        card_clicked(this);
+        card_constructor.card_clicked(this);
     });
+    
 });
