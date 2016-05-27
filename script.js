@@ -1,7 +1,7 @@
 /********************************************** GAME OBJECT **********************************************/
 var game = {
     canClick: true,
-    card_flip_timer: true,
+    card_flip_timer: null,
     first_card: null,
     second_card: null,
     matches: 0,
@@ -89,18 +89,18 @@ var game = {
 
     /************ UNFLIP CARDS ************/
     unflip_cards: function() {
-        this.canClick = false;
+        this.canClick = true;
         this.card_flip_timer = setTimeout(function() {
-            this.card_flip_timer = null;
-            this.first_card.removeClass('flipcard');
-            this.second_card.removeClass('flipcard');
-        }, 800);
+            game.card_flip_timer = null;
+            $(game.first_card).removeClass('flipcard');
+            $(game.second_card).removeClass('flipcard');
+            game.first_card = null;
+            game.second_card = null;
+        }, 750);
     },
 
     /************ CARDS CLICKED ************/
     card_clicked: function (current) {
-        // var self = this;
-        console.log('test');
         $('#19').trigger('play');
         if (this.canClick === false || $(current).hasClass('flipcard')) {
             return;
@@ -128,12 +128,12 @@ var game = {
                 }
             }
             else {
-                $('#14').trigger('play');
+                $('#5').trigger('play');
                 this.attempts++;
-                this.canClick = false;
+                game.canClick = false;
                 this.get_accuracy();
                 this.display_stats();
-                game.unflip_cards();
+                this.unflip_cards();
             }
         }
     },
@@ -147,7 +147,7 @@ var game = {
     }
 
 };
-
+//
 // ------------------------ CREATE GAME FUNCTION ------------------------- //
 // function create_game() {
 //     $('#start-game-button').hide();

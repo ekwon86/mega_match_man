@@ -89,6 +89,10 @@ header > h1 {
     align-items: center;
 }
 
+.value {
+    font-size: 2vh;
+}
+
 #game-area {
     display: flex;
     justify-content: space-around;
@@ -180,18 +184,19 @@ header > h1 {
     align-items: center;
 }
 .you-win, .you-lose {
-    font-size: 10vh;
+    font-size: 7vh;
     position: absolute;
     background-color: rgba(0,0,0,0.75);
     box-shadow: 10px 12px 15px 3px black;
     text-shadow: 5px 5px 0px white;
     color: #2ad1ff;
-    padding: 2.5vh 9.5vw;
-    top: 37vh;
+    padding: 3.5vh 9.5vw;
+    top: 42vh;
     border-radius: 5%;
     left: 50%;
     transform: translate(-50%, 0%);
 }
+
 
 .health-container {
     position: absolute;
