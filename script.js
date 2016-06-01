@@ -65,22 +65,24 @@ var game = {
         this.second_card = null;
     },
 
-    /************ RESET STATS ************/
+    /************ RESET ************/
     reset: function () {
-        // this.reset_cards();
-        // this.canClick = true;
-        // this.card_flip_timer = null;
+        this.reset_cards();
+        this.canClick = true;
+        this.card_flip_timer = null;
         this.matches = 0;
         this.attempts = 0;
         this.accuracy = 0;
         this.game_timer = null;
         this.games_played++;
         this.display_stats();
-        this.remove_cards();
+        $('.card').remove();
+        // $('.card').removeClass('flipcard');
         this.randomize_cards();
-        $('.cards').removeClass('flipcard');
-        $('.you-win').fadeOut('slow');
-        $('.you-lose').fadeOut('slow');
+        $('.you-win').hide();
+        $('.you-lose').hide();
+        // $('.you-win').fadeOut('slow');
+        // $('.you-lose').fadeOut('slow');
     },
 
     /************ SET ACCURACY ************/
@@ -99,11 +101,6 @@ var game = {
             game.first_card = null;
             game.second_card = null;
         }, 750);
-    },
-
-    /************ REMOVE CARDS ************/
-    remove_cards: function() {
-        $('.cards').remove();
     },
 
     /************ CARDS CLICKED ************/
