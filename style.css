@@ -11,7 +11,7 @@
 body {
     background-image: url('images/background2.png');
     background-repeat: no-repeat;
-    background-size: 100% 130%;
+    background-size: 100vw 100vh;
 }
 header {
     height: 5vh;
@@ -23,7 +23,7 @@ header > h1 {
     color: deepskyblue;
     text-align: center;
     letter-spacing: 1vw;
-    margin-top: 4vh;
+    margin-top: 8vh;
 }
 
 #stats-container {
@@ -34,10 +34,14 @@ header > h1 {
     text-shadow: 2px 2px 2px #0652ff;
     text-align: center;
     margin-right: 3vw;
-    margin-top: 23vh;
+    margin-top: 11vh;
     width: 18vw;
     height: 62vh;
-    font-size: 1.5vh;
+    font-size: 1vh;
+}
+
+#stats-container > h3 {
+    font-size: 2vh;
 }
 .games-played, .attempts, .accuracy {
     color: white;
@@ -66,7 +70,8 @@ header > h1 {
     position: relative;
     margin: 5vh 1vw;
     color: white;
-    background-color: #16ccff;
+    background-color: #1a68ff;
+    text-shadow: 2px 2px 4px black;
     text-transform: uppercase;
     padding: 1vh;
     box-shadow: 0px 0px 5px 1px black;
@@ -75,11 +80,12 @@ header > h1 {
     position: relative;
     margin: 1vw;
     color: white;
-    background-color: #16ccff;
+    background-color: #1a68ff;
     text-transform: uppercase;
     padding: 1vh;
     bottom: 5vh;
     box-shadow: 0px 0px 5px 1px black;
+    text-shadow: 2px 2px 4px black;
 }
 
 .mid {
@@ -103,7 +109,7 @@ header > h1 {
     background-color: rgba(0,0,0, 0.5);
     box-shadow: 15px 15px 10px -2px rgba(0,0,0,0.3);
     border-radius: 1%;
-    margin-top: 23vh;
+    margin-top: 11vh;;
 }
 
 #start-game-button {

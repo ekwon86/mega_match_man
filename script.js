@@ -23,6 +23,18 @@ var game = {
         'images/crashman2.png',
         'images/megaman2.png'
     ],
+    card_array2: [
+        'images/flashman.png',
+        'images/bubbleman.png',
+        'images/metalman.png',
+        'images/airman.png',
+        'images/heatman.png',
+        'images/woodman.png',
+        'images/quickman.png',
+        'images/crashman.png',
+        'images/megaman.png'
+    ],
+
 
     /************ INITIALIZE ************/
     init: function () {
@@ -100,7 +112,7 @@ var game = {
             $(game.second_card).removeClass('flipcard');
             game.first_card = null;
             game.second_card = null;
-        }, 750);
+        }, 1000);
     },
 
     /************ CARDS CLICKED ************/
