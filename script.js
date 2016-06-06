@@ -10,7 +10,6 @@ var game = {
     attempts: 0,
     accuracy: 0,
     games_played: 0,
-    game_timer: null,
     total_cards: 18,
     card_array: [
         'images/flashman2.png',
@@ -52,6 +51,7 @@ var game = {
 
     /************ CARD RANDOMIZER ************/
     randomize_cards: function () {
+        var self = this;
         var randomized_array = this.card_array.concat(this.card_array);
         var randomized_array_length = randomized_array.length;
         var images_copy = [];
@@ -63,6 +63,10 @@ var game = {
 
         for (var j = 0; j < this.total_cards; j++) {
             var card = $('<div>').addClass('card');
+            //attach click handler/delegation to the card
+            card.click(function() {
+                self.card_clicked(this);
+            });
             var back = $('<div>').addClass('back').html('<img src="images/cardback.png">');
             var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '">');
             $(card).append(front);
@@ -79,22 +83,19 @@ var game = {
 
     /************ RESET ************/
     reset: function () {
-        this.reset_cards();
+        $('.card').remove();
+        this.randomize_cards();
         this.canClick = true;
+        this.match_counter = 0;
         this.card_flip_timer = null;
         this.matches = 0;
         this.attempts = 0;
         this.accuracy = 0;
-        this.game_timer = null;
         this.games_played++;
         this.display_stats();
-        $('.card').remove();
         // $('.card').removeClass('flipcard');
-        this.randomize_cards();
-        $('.you-win').hide();
-        $('.you-lose').hide();
-        // $('.you-win').fadeOut('slow');
-        // $('.you-lose').fadeOut('slow');
+        $('.you-win').fadeOut('slow');
+        $('.you-lose').fadeOut('slow');
     },
 
     /************ SET ACCURACY ************/
@@ -112,7 +113,7 @@ var game = {
             $(game.second_card).removeClass('flipcard');
             game.first_card = null;
             game.second_card = null;
-        }, 1000);
+        }, 950);
     },
 
     /************ CARDS CLICKED ************/
