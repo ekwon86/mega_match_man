@@ -33,8 +33,7 @@ var game = {
         'images/crashman.png',
         'images/megaman.png'
     ],
-
-
+    
     /************ INITIALIZE ************/
     init: function () {
         console.log('Game initialized');
@@ -161,8 +160,14 @@ var game = {
 
     victory_music: function() {
         $('#victory_music').trigger('play');
+    },
+    
+    /************ CREATE GAME ************/
+    create_game: function() {
+        $('#start-game-button').hide();
+        $('#game-area, #stats-container').show();
+        this.init();
     }
-
 };
 
 // ------------------------ CREATE GAME FUNCTION ------------------------- //
@@ -201,9 +206,13 @@ var game = {
 
 
 $(document).ready(function() {
-    $('.you-win, .you-lose').hide();
+    $('.you-win, .you-lose, #game-area, #stats-container').hide();
 
-    game.init();
+    $('#close-modal').on('click', function() {
+       game.create_game();
+    });
+    //
+    // game.init();
 
     $("#reset").on('click', function() {
         game.reset();
@@ -217,4 +226,5 @@ $(document).ready(function() {
         game.card_clicked(this);
     });
     
+
 });
