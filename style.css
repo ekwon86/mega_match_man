@@ -156,21 +156,13 @@ header > h1 {
     box-shadow: 1px 2px 6px black;
 }
 
-.dancingman {
-    position: absolute;
-    width: 18vh;
-    height: 18vh;
-    top: 72vh;
-    left: 15%;
-}
-
 .card {
     display: inline-block;
     position: relative;
     height: 21vh;
     width: 8vw;
     margin: 0.4em;
-    transition-duration: 1.25s;
+    transition-duration: 0.5s;
     transform-style: preserve-3d;
 }
 .back > img {
@@ -194,12 +186,14 @@ header > h1 {
 .flipcard {
     transform: rotate3D(0,1,0,180deg);
 }
+
 .audio {
     bottom: -14vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .you-win, .you-lose {
     font-size: 7vh;
     position: absolute;
