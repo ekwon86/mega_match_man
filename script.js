@@ -49,7 +49,7 @@ var game = {
     },
 
     /************ CARD RANDOMIZER ************/
-    randomize_cards: function () {
+    randomize_cards_day: function () {
         var self = this;
         var randomized_array = this.card_array.concat(this.card_array);
         var randomized_array_length = randomized_array.length;
@@ -62,11 +62,33 @@ var game = {
 
         for (var j = 0; j < this.total_cards; j++) {
             var card = $('<div>').addClass('card');
-            //attach click handler/delegation to the card
             card.click(function() {
                 self.card_clicked(this);
             });
             var back = $('<div>').addClass('back').html('<img src="images/cardback.png">');
+            var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '">');
+            $(card).append(front);
+            $(card).append(back);
+            $('#game-area').append(card);
+        }
+    },
+    randomize_cards_night: function () {
+        var self = this;
+        var randomized_array = this.card_array2.concat(this.card_array2);
+        var randomized_array_length = randomized_array.length;
+        var images_copy = [];
+
+        for (var i = 0; i < randomized_array_length; i++) {
+            var random_num = Math.floor((Math.random() * randomized_array.length));
+            images_copy.push(randomized_array.splice(random_num, 1));
+        }
+
+        for (var j = 0; j < this.total_cards; j++) {
+            var card = $('<div>').addClass('card');
+            card.click(function() {
+                self.card_clicked(this);
+            });
+            var back = $('<div>').addClass('back').html('<img src="images/cardback2.jpg">');
             var front = $('<div>').addClass('front').html('<img src="' + images_copy[j] + '">');
             $(card).append(front);
             $(card).append(back);
@@ -166,31 +188,16 @@ var game = {
     create_game: function() {
         $('#start-game-button').hide();
         $('#game-area, #stats-container').show();
-        this.init();
+        if ($('#daytime').is(':checked')){
+            this.randomize_cards_day();
+        }
+        else if ($('#nighttime').is(':checked')) {
+            $('body').css('background-image', 'url(images/background.jpg)');
+            this.randomize_cards_night();
+        }
     }
 };
 
-// ------------------------ CREATE GAME FUNCTION ------------------------- //
-// function create_game() {
-//     $('#start-game-button').hide();
-//     if ($('#nighttime').is(':checked')) {
-//         $('body').css('background-image', 'url(images/background.jpg)');
-//         $('.back img').attr('src', 'images/cardback.png');
-//         $('.card1 img').attr('src', 'images/flashman2.png');
-//         $('.card2 img').attr('src', 'images/bubbleman2.png');
-//         $('.card3 img').attr('src', 'images/airman2.png');
-//         $('.card4 img').attr('src', 'images/metalman2.png');
-//         $('.card5 img').attr('src', 'images/heatman2.png');
-//         $('.card6 img').attr('src', 'images/woodman2.png');
-//         $('.card7 img').attr('src', 'images/quickman2.png');
-//         $('.card8 img').attr('src', 'images/crashman2.png');
-//         $('.card9 img').attr('src', 'images/megaman2.png');
-//     }
-//     else if ($('#timed').is(':checked')) {
-//         set_game_time();
-//     }
-//     $('#game-area, #stats-container').show();
-// }
 
 // // --------------------------- TIMER FUNCTION ------------------------------ //
 // function set_game_time() {
@@ -201,9 +208,6 @@ var game = {
 //     }, 5000);
 // }
 //
-// --------------------------- SOUND FUNCTIONS ------------------------------ //
-
-
 
 $(document).ready(function() {
     $('.you-win, .you-lose, #game-area, #stats-container').hide();
@@ -211,8 +215,6 @@ $(document).ready(function() {
     $('#close-modal').on('click', function() {
        game.create_game();
     });
-    //
-    // game.init();
 
     $("#reset").on('click', function() {
         game.reset();
@@ -225,6 +227,5 @@ $(document).ready(function() {
     $('.card').on('click', function() {
         game.card_clicked(this);
     });
-    
 
 });
