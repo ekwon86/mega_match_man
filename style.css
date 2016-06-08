@@ -87,6 +87,17 @@ header > h1 {
     box-shadow: 0px 0px 5px 1px black;
     text-shadow: 2px 2px 4px black;
 }
+#mute {
+    position: relative;
+    margin: 1vw;
+    color: white;
+    background-color: #1a68ff;
+    text-transform: uppercase;
+    padding: 1vh;
+    bottom: 5vh;
+    box-shadow: 0px 0px 5px 1px black;
+    text-shadow: 2px 2px 4px black;
+}
 
 .mid {
     height: 70vh;

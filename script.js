@@ -180,6 +180,10 @@ var game = {
         $('#start_music').trigger('play');
     },
 
+    mute_music: function() {
+        $('#start_music').trigger('pause');
+    },
+
     victory_music: function() {
         $('#victory_music').trigger('play');
     },
@@ -210,7 +214,7 @@ var game = {
 //
 
 $(document).ready(function() {
-    $('.you-win, .you-lose, #game-area, #stats-container').hide();
+    $('.you-win, .you-lose, #game-area, #stats-container, #mute').hide();
 
     $('#close-modal').on('click', function() {
        game.create_game();
@@ -221,7 +225,15 @@ $(document).ready(function() {
     });
 
     $("#play").on('click', function() {
+        $('#play').hide();
+        $('#mute').show();
         game.play_music();
+    });
+
+    $("#mute").on('click', function() {
+        $("#mute").hide();
+        $("#play").show();
+        game.mute_music();
     });
 
     $('.card').on('click', function() {
