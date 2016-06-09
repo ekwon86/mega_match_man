@@ -188,8 +188,13 @@ var game = {
     
     /************ CREATE GAME ************/
     create_game: function() {
-        $('#start-game-button').hide();
-        $('#game-area, #stats-container').show();
+
+        // VALID SELECTION
+        if ($('#easy, #medium, #hard').is(':checked') == false || $('#daytime, #nighttime').is(':checked')) {
+            console.log('valid option not selected');
+            return;
+        }
+
         // THEME SELECT
         if ($('#daytime').is(':checked')){
             this.randomize_cards_day();
@@ -203,11 +208,13 @@ var game = {
             $('.card').css('transition-duration', '1s');
         }
         else if ($('#medium').is(':checked')){
-            $('.card').css('transition-duration', '0.66s');
+            $('.card').css('transition-duration', '0.5s');
         }
         else if ($('#hard').is(':checked')){
-            $('.card').css('transition-duration', '0.33s');
+            $('.card').css('transition-duration', '0.1s');
         }
+        $('#start-game-button').hide();
+        $('#game-area, #stats-container').show();
     }
 };
 
