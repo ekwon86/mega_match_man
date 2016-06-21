@@ -124,7 +124,7 @@ var game = {
     },
 
     /************ UNFLIP CARDS ************/
-    unflip_cards: function() {
+    unflip_cards_easy: function() {
         this.canClick = true;
         this.card_flip_timer = setTimeout(function() {
             game.card_flip_timer = null;
@@ -133,6 +133,28 @@ var game = {
             game.first_card = null;
             game.second_card = null;
         }, 1000);
+    },
+
+    unflip_cards_normal: function() {
+        this.canClick = true;
+        this.card_flip_timer = setTimeout(function() {
+            game.card_flip_timer = null;
+            $(game.first_card).removeClass('flipcard');
+            $(game.second_card).removeClass('flipcard');
+            game.first_card = null;
+            game.second_card = null;
+        }, 500);
+    },
+
+    unflip_cards_hard: function() {
+        this.canClick = true;
+        this.card_flip_timer = setTimeout(function() {
+            game.card_flip_timer = null;
+            $(game.first_card).removeClass('flipcard');
+            $(game.second_card).removeClass('flipcard');
+            game.first_card = null;
+            game.second_card = null;
+        }, 100);
     },
 
     /************ CARDS CLICKED ************/
@@ -163,13 +185,23 @@ var game = {
                     $('.you-win').fadeIn('slow');
                 }
             }
+
             else {
                 $('#5').trigger('play');
                 this.attempts++;
                 game.canClick = false;
                 this.get_accuracy();
                 this.display_stats();
-                this.unflip_cards();
+                if ($('#easy').is(':checked')){
+                    this.unflip_cards_easy();
+                }
+                else if ($('#normal').is(':checked')){
+                    this.unflip_cards_normal();
+                }
+                else if ($('#hard').is(':checked')) {
+                    this.unflip_cards_hard();
+                }
+
             }
         }
     },
@@ -190,13 +222,14 @@ var game = {
     create_game: function() {
 
         // VALID SELECTION
-        // if ($('#easy, #medium, #hard').is(':checked') == false || $('#daytime, #nighttime').is(':checked')) {
+        // if ($('#easy, #normal, #hard').is(':checked') == false || $('#daytime, #nighttime').is(':checked')) {
         //     console.log('valid option not selected');
         //     return;
         // }
 
         // THEME SELECT
         if ($('#daytime').is(':checked')){
+            $('body').css('background-image', 'url(images/background2.png)');
             this.randomize_cards_day();
         }
         else if ($('#nighttime').is(':checked')) {
@@ -205,15 +238,17 @@ var game = {
         }
 
         // DIFFICULTY SELECT
-        // if ($('#easy').is(':checked')){
-        //     $('.card').css('transition-duration', '1s');
-        // }
-        // else if ($('#medium').is(':checked')){
-        //     $('.card').css('transition-duration', '0.5s');
-        // }
-        // else if ($('#hard').is(':checked')){
-        //     $('.card').css('transition-duration', '0.1s');
-        // }
+        if ($('#easy').is(':checked')){
+            $('.card').css('transition-duration', '1s');
+        }
+
+        else if ($('#normal').is(':checked')){
+            $('.card').css('transition-duration', '0.5s');
+        }
+        else if ($('#hard').is(':checked')) {
+            $('.card').css('transition-duration', '0.1s');
+        }
+
         $('#start-game-button').hide();
         $('#game-area, #stats-container').show();
     }
@@ -223,7 +258,6 @@ $(document).ready(function() {
     $('.you-win, .you-lose, #game-area, #stats-container, #mute').hide();
 
     $('#close-modal').on('click', function() {
-        console.log('test');
         game.display_stats();
         game.create_game();
     });
