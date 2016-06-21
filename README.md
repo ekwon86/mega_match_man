@@ -7,8 +7,8 @@ A memory match card game where the player has to correctly match nine pairs of r
 ### Features I Want to Implement in Future Iterations
 - [x] Themes 
 - [x] Difficulty 
-- [ ] Health Bar - Decrement health every time user wrongly guesses. 
-- [ ] Timed Game - Player can choose a timed game and the player can lose if time runs out before all cards are matched.
+- [ ] **Health Bar** - Decrement health every time user wrongly guesses. Player loses if health is depleted.
+- [ ] **Timed Game** - Player can choose a timed game and the player can lose if time runs out before all cards are matched.
 
 ###[LIVE DEMO](http://ekwon86.github.io/memory_match)
 
