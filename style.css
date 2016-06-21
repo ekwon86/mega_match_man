@@ -1,14 +1,11 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "MegaMan 2";
     letter-spacing: 0.3vw;
 }
-@font-face {
-    font-family: "MegaMan 2";
-    src: url(megaman.ttf);
-}
+
 body {
+    font-family: 'Orbitron', serif;
     background-image: url('images/background2.png');
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
