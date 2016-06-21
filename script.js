@@ -132,7 +132,7 @@ var game = {
             $(game.second_card).removeClass('flipcard');
             game.first_card = null;
             game.second_card = null;
-        }, 500);
+        }, 1000);
     },
 
     /************ CARDS CLICKED ************/
@@ -150,7 +150,7 @@ var game = {
         else {
             this.second_card = current;
             if ($(this.first_card).find('.front img').attr('src') == $(this.second_card).find('.front img').attr('src')) {
-                $('#2').trigger('play');
+                $('#20').trigger('play');
                 this.reset_cards();
                 this.attempts++;
                 this.matches++;
@@ -190,10 +190,10 @@ var game = {
     create_game: function() {
 
         // VALID SELECTION
-        if ($('#easy, #medium, #hard').is(':checked') == false || $('#daytime, #nighttime').is(':checked')) {
-            console.log('valid option not selected');
-            return;
-        }
+        // if ($('#easy, #medium, #hard').is(':checked') == false || $('#daytime, #nighttime').is(':checked')) {
+        //     console.log('valid option not selected');
+        //     return;
+        // }
 
         // THEME SELECT
         if ($('#daytime').is(':checked')){
@@ -203,16 +203,17 @@ var game = {
             $('body').css('background-image', 'url(images/background.jpg)');
             this.randomize_cards_night();
         }
+
         // DIFFICULTY SELECT
-        if ($('#easy').is(':checked')){
-            $('.card').css('transition-duration', '1s');
-        }
-        else if ($('#medium').is(':checked')){
-            $('.card').css('transition-duration', '0.5s');
-        }
-        else if ($('#hard').is(':checked')){
-            $('.card').css('transition-duration', '0.1s');
-        }
+        // if ($('#easy').is(':checked')){
+        //     $('.card').css('transition-duration', '1s');
+        // }
+        // else if ($('#medium').is(':checked')){
+        //     $('.card').css('transition-duration', '0.5s');
+        // }
+        // else if ($('#hard').is(':checked')){
+        //     $('.card').css('transition-duration', '0.1s');
+        // }
         $('#start-game-button').hide();
         $('#game-area, #stats-container').show();
     }
@@ -222,6 +223,7 @@ $(document).ready(function() {
     $('.you-win, .you-lose, #game-area, #stats-container, #mute').hide();
 
     $('#close-modal').on('click', function() {
+        console.log('test');
         game.display_stats();
         game.create_game();
     });

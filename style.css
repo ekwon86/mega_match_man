@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
     letter-spacing: 0.3vw;
+    text-transform: uppercase;
+    font-family: 'Press Start 2P', serif;
 }
 
 body {
-    font-family: 'Orbitron', serif;
     background-image: url('images/background2.png');
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
@@ -19,7 +20,7 @@ header > h1 {
     text-shadow: 3px 3px 3px #1f3bff;
     color: deepskyblue;
     text-align: center;
-    letter-spacing: 1vw;
+    letter-spacing: 0.5vw;
     margin-top: 8vh;
 }
 
@@ -159,7 +160,7 @@ header > h1 {
     height: 21vh;
     width: 8vw;
     margin: 0.4em;
-    transition-duration: 0.5s;
+    transition-duration: 1s;
     transform-style: preserve-3d;
 }
 .back > img {
