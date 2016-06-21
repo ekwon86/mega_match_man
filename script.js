@@ -222,18 +222,19 @@ var game = {
     create_game: function() {
 
         // VALID SELECTION
-        // if ($('#easy, #normal, #hard').is(':checked') == false || $('#daytime, #nighttime').is(':checked')) {
-        //     console.log('valid option not selected');
-        //     return;
-        // }
+        if ($('#easy, #normal, #hard').is(':checked') == false || $('#daytime, #nighttime').is(':checked') == false) {
+            $('#modal').effect("shake");
+        }
 
         // THEME SELECT
         if ($('#daytime').is(':checked')){
             $('body').css('background-image', 'url(images/background2.png)');
+            $('.card').remove();
             this.randomize_cards_day();
         }
         else if ($('#nighttime').is(':checked')) {
             $('body').css('background-image', 'url(images/background.jpg)');
+            $('.card').remove();
             this.randomize_cards_night();
         }
 
