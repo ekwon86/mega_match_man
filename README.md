@@ -5,8 +5,8 @@
 A memory match card game where the player has to correctly match nine pairs of randomly generated cards. The game also gives the player an option to change the theme of the game and also gives the player difficulty options to choose from. The easy difficulty gives the player a longer time between card flipping transitions and said time decrements as the difficulty is increased. Player can also opt to play music if he or she wishes.
 
 ### Features I Want to Implement in Future Iterations
-[ ] Health Bar - Decrement health every time user wrongly guesses. 
-[ ] Timed Game - Player can choose a timed game and the player can lose if time runs out before all cards are matched.
+- [ ] Health Bar - Decrement health every time user wrongly guesses. 
+- [ ] Timed Game - Player can choose a timed game and the player can lose if time runs out before all cards are matched.
 
 ###[LIVE DEMO](http://ekwon86.github.io/memory_match)
 
