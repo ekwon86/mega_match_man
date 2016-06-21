@@ -2,8 +2,9 @@
 
 ### Overview
 
-> Version 1.0 continues where version 0.5 stopped by adding in the statistics of the memory match game. When a user clicks on a card the application will start tracking how many matches versus how many attempts. In combination with the stats there is also a tracker for how many times the game is played. Games played is tracked by resetting / restarting the game.
+A memory match card game where the player has to correctly match nine pairs of randomly generated cards. The game also gives the player an option to change the theme of the game and also gives the player difficulty options to choose from. The easy difficulty gives the player a longer time between card flipping transitions and said time decrements as the difficulty is increased. Player can also opt to play music if he or she wishes.
 
+[LIVE DEMO](http://ekwon86.github.io/memory_match)
 
 
 
