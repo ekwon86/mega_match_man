@@ -346,6 +346,18 @@ header > h1 {
         text-shadow: 2px 2px 4px black;
     }
 
+    #mute {
+        position: relative;
+        margin: 1vw;
+        color: white;
+        background-color: #1a68ff;
+        text-transform: uppercase;
+        padding: 1vh;
+        bottom: 2vh;
+        box-shadow: 0px 0px 5px 1px black;
+        text-shadow: 2px 2px 4px black;
+    }
+
     #reset {
         position: relative;
         margin: 5vh 1vw;
