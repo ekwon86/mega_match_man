@@ -223,3 +223,138 @@ header > h1 {
 #aboutmetext {
     letter-spacing: 0.15vw;
 }
+
+@media (min-width: 320px) and (max-width: 579px) {
+    header > h1 {
+        font-size: 3vh;
+        text-shadow: 3px 3px 3px #1f3bff;
+        color: deepskyblue;
+        text-align: center;
+        letter-spacing: 0.5vw;
+        margin-top: 4vh;
+    }
+
+    body {
+        background-repeat: no-repeat;
+        background-size: 250% 100vh;
+    }
+
+    #start-game-button {
+        font-size: 3vh;
+        padding: 1vh 1vw;
+        box-shadow: 2px 15px 28px -7px black;
+        text-shadow: 2px 4px 6px black;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        padding: 0.5em;
+        transform: translate(-50%);
+    }
+
+    #stats-container {
+        background-color: rgba(0,20,40, 0.5);
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.15);
+        border-radius: 1%;
+        color: deepskyblue;
+        text-shadow: 2px 2px 2px #0652ff;
+        text-align: center;
+        width: 97vw;
+        height: 36vh;
+        position: absolute;
+        bottom: 1vh;
+        overflow: hidden;
+    }
+
+    #game-area {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 97vw;
+        height: 53vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 15px 15px 10px -2px rgba(0, 0, 0, 0.3);
+        border-radius: 1%;
+        margin-top: -17vh;
+    }
+
+    .card {
+        display: inline-block;
+        position: relative;
+        height: 16vh;
+        width: 11vw;
+        transition-duration: 1s;
+        transform-style: preserve-3d;
+    }
+
+    .back > img {
+        position: absolute;
+        top: 0;
+        left: -5px;
+        height: 15vh;
+        width: 14vw;
+        backface-visibility: hidden;
+    }
+
+    .front > img {
+        position: absolute;
+        top: 0;
+        left: -5px;
+        height: 15vh;
+        width: 14vw;
+    }
+
+    .label {
+        display: inline;
+        padding: -0.8em .6em .3em;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+    }
+
+    .value {
+        font-size: 2vh;
+        display: inline;
+        margin-left: 10px;
+    }
+
+    #stats-container > h3 {
+        font-size: 3vh;
+    }
+
+    .aboutandsettings {
+        color: white;
+        position: relative;
+        top: 1vh;
+        padding: 5px 0 5px 0;
+    }
+
+    #play {
+        position: relative;
+        margin: 1vw;
+        color: white;
+        background-color: #1a68ff;
+        text-transform: uppercase;
+        padding: 1vh;
+        bottom: 2vh;
+        box-shadow: 0px 0px 5px 1px black;
+        text-shadow: 2px 2px 4px black;
+    }
+
+    #reset {
+        position: relative;
+        margin: 5vh 1vw;
+        color: white;
+        bottom: 2vh;
+        background-color: #1a68ff;
+        text-shadow: 2px 2px 4px black;
+        text-transform: uppercase;
+        padding: 1vh;
+        box-shadow: 0px 0px 5px 1px black;
+    }
+}
